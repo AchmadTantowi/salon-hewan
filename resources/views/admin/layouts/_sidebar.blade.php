@@ -50,6 +50,12 @@
             <span class="pull-right-container"></span>
           </a>
         </li>
+        <li class="{{ Request::is('admin/work-order') ? 'active' : '' }}">
+          <a href="/admin/work-order">
+          <i class="fa fa-file-word-o"></i> <span>Work Order</span>
+            <span class="pull-right-container"></span>
+          </a>
+        </li>
         <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
           <a href="/admin/user">
           <i class="fa fa-user"></i> <span>User</span>

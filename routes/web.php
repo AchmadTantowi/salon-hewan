@@ -61,10 +61,18 @@ Route::prefix('admin')->group(function () {
 
     // USER
     Route::get('/user', 'Admin\UserController@index');
+    Route::get('/user/add', 'Admin\UserController@add');
+    Route::post('/user/save-user', 'Admin\UserController@saveUser');
 
     // CUSTOMER
     Route::get('/customer', 'Admin\CustomerController@index');
     Route::get('/customer/verified/{userId}', 'Admin\CustomerController@updateStatusVerified');
+
+    // WORK ORDER
+    Route::get('/work-order', 'Admin\WorkOrderController@index');
+    Route::get('/work-order/add', 'Admin\WorkOrderController@add');
+    Route::get('/work-order/print', 'Admin\WorkOrderController@print');
+    Route::post('/work-order/save-workorder', 'Admin\WorkOrderController@saveWorkOrder');
 });
 
 Auth::routes();

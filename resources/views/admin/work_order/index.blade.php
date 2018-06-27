@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>User</h1>
+      <h1>Work Order</h1>
     </section>
     <!-- Main content -->
     <section class="content">
@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/admin/user/add">
+              <a href="/admin/work-order/add">
                 <button type="button" class="btn btn-info">Add</button>
               </a>
             </div>
@@ -24,22 +24,26 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th></th>
+                  <th>Instruction from</th>
+                  <th>Instruction to</th>
+                  <th>Order</th>
+                  <th>Notes</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @php($no = 1)
-                @foreach($users as $user)
+                @foreach($workOrders as $workOrder)
                 <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone }}</td>
+                <td>{{ $workOrder->from->name }}</td>
+                <td>{{ $workOrder->to->name }}</td>
+                <td>{{ $workOrder->order_id }}</td>
+                <td>{{ $workOrder->notes }}</td>
                 <td>
-
+                    <a href="/admin/work-order/print" target="_blank">
+                        <i class="fa fa-print"></i> Print 
+                    </a>
                 </td>
                 </tr>
                 @endforeach

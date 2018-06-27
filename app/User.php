@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'customer_id', 'name', 'email', 'password','phone','address','role', 'verified'
+        'customer_id', 'name', 'email', 'password','phone','address','role', 'verified', 'position'
     ];
 
     /**
@@ -36,4 +36,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\ConfirmPayment', 'user_id');
     }
+
+    
+
+    
 }

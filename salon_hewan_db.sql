@@ -11,7 +11,7 @@
  Target Server Version : 100132
  File Encoding         : 65001
 
- Date: 24/06/2018 10:32:31
+ Date: 28/06/2018 00:07:57
 */
 
 SET NAMES utf8mb4;
@@ -194,24 +194,48 @@ CREATE TABLE `users` (
   `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `position` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `verified` int(1) DEFAULT '0',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` VALUES (1, NULL, 'Admin', 'admin@gmail.com', '$2y$10$cwd1Ub/2jcoaqJAfCMFhb.WCnc79UM3joqxLwPLXs5jFeENwBIl9O', 'Kbn nanas', '087899887788', 'admin', 0, 'xVsFbfZrl23ygX0ZR6yYrZDRzPI67qRpIkVCIsMwNRQsRz5K815qAOwVyQuZ', '2018-06-12 15:59:01', '2018-06-12 15:59:01');
-INSERT INTO `users` VALUES (2, NULL, 'customer', 'customer@gmail.com', '$2y$10$lHneYXzIt3uqu9KHveuG4ejvlpyF9ecrCVAU5ebQ.G.4BfJ3G4R2m', 'Cikokol', '081266335242', 'customer', 0, NULL, '2018-06-12 15:59:01', '2018-06-23 03:38:41');
-INSERT INTO `users` VALUES (3, NULL, 'Owai', 'owai@mail.com', '$2y$10$MG5/iMz4vmgAlqcyjl0Cou.uCDCzjbAtKFsMcFQxrlMI8vHvVNjgi', 'Serpong', '08778899112', 'customer', 0, 'jvpQZhdx2a0soGH2w2ZsGxTUDGwDE7tttZ1F01HSSfK1vkeHQ4wAZexaGPZO', '2018-06-12 16:10:02', '2018-06-23 03:47:40');
-INSERT INTO `users` VALUES (4, NULL, 'owi', 'tantowiachmad@gmail.com', '$2y$10$1cRsKYL7GaWXGaFIbyXCOuMae7SfQ1FPnXOTxKi.buJOYPArpETJu', 'irmas', '0899988888', 'customer', 1, 'CAfARcyvf558FAiPOJchYxDg3LQCUo5n15Lft1dtyKSUUYey5kAbgnvwMJwL', '2018-06-18 10:19:53', '2018-06-23 04:30:16');
-INSERT INTO `users` VALUES (5, NULL, 'joko', 'joko@mail.com', '$2y$10$VDwOluxMcl5JfUHk9pXlcuDOIXNL7ql0JxtINa23fLzeQmo8P7.Ea', 'bsd', '0899887711', 'customer', 0, 'myB8PqcMmfN6eNbrgFKQdF2xMp1Vyv0NUecUBqACNqsGkEGpLMYUyQ70X5JB', '2018-06-18 10:25:34', '2018-06-23 03:47:04');
-INSERT INTO `users` VALUES (6, NULL, 'andi', 'andi@mail.com', '$2y$10$5LaiWDbxvFCY.1jcp.ysQuVMxmyyMlXkwMTsgmqWGP.Gs89c2gfv.', 'serpong', '08998899', 'customer', 0, 'JAxMdTcSHCU8MoZ0xTHA9rVvYyGjWcFFHxD2RIy64on07QV6xSJkyt8HokQv', '2018-06-18 10:26:51', '2018-06-23 03:39:06');
+INSERT INTO `users` VALUES (1, NULL, 'Admin', 'admin@gmail.com', '$2y$10$cwd1Ub/2jcoaqJAfCMFhb.WCnc79UM3joqxLwPLXs5jFeENwBIl9O', 'Kbn nanas', '087899887788', 'admin', NULL, 1, '94elaqrWErlnKqs54Y4STzEkJdvp6sWmvTBjnDh8PfB9inB8GW1hARKV7deS', '2018-06-12 15:59:01', '2018-06-12 15:59:01');
+INSERT INTO `users` VALUES (2, NULL, 'customer', 'customer@gmail.com', '$2y$10$lHneYXzIt3uqu9KHveuG4ejvlpyF9ecrCVAU5ebQ.G.4BfJ3G4R2m', 'Cikokol', '081266335242', 'customer', NULL, 0, NULL, '2018-06-12 15:59:01', '2018-06-23 03:38:41');
+INSERT INTO `users` VALUES (3, NULL, 'Owai', 'owai@mail.com', '$2y$10$MG5/iMz4vmgAlqcyjl0Cou.uCDCzjbAtKFsMcFQxrlMI8vHvVNjgi', 'Serpong', '08778899112', 'customer', NULL, 0, 'S0zQmh3zdaV5UFD9AW4u2MEhFfsIRJQpynFLnjPGLY2ziI7mHrHKaTafN0dp', '2018-06-12 16:10:02', '2018-06-23 03:47:40');
+INSERT INTO `users` VALUES (4, NULL, 'owi', 'tantowiachmad@gmail.com', '$2y$10$1cRsKYL7GaWXGaFIbyXCOuMae7SfQ1FPnXOTxKi.buJOYPArpETJu', 'irmas', '0899988888', 'customer', NULL, 1, 'CAfARcyvf558FAiPOJchYxDg3LQCUo5n15Lft1dtyKSUUYey5kAbgnvwMJwL', '2018-06-18 10:19:53', '2018-06-23 04:30:16');
+INSERT INTO `users` VALUES (5, NULL, 'joko', 'joko@mail.com', '$2y$10$VDwOluxMcl5JfUHk9pXlcuDOIXNL7ql0JxtINa23fLzeQmo8P7.Ea', 'bsd', '0899887711', 'customer', NULL, 0, 'myB8PqcMmfN6eNbrgFKQdF2xMp1Vyv0NUecUBqACNqsGkEGpLMYUyQ70X5JB', '2018-06-18 10:25:34', '2018-06-23 03:47:04');
+INSERT INTO `users` VALUES (6, NULL, 'andi', 'andi@mail.com', '$2y$10$5LaiWDbxvFCY.1jcp.ysQuVMxmyyMlXkwMTsgmqWGP.Gs89c2gfv.', 'serpong', '08998899', 'customer', NULL, 0, 'JAxMdTcSHCU8MoZ0xTHA9rVvYyGjWcFFHxD2RIy64on07QV6xSJkyt8HokQv', '2018-06-18 10:26:51', '2018-06-23 03:39:06');
+INSERT INTO `users` VALUES (8, NULL, 'imam', 'imam@mail.com', '$2y$10$nqnsgn21vRbkn2n12Qb62.PN3JN0u9OPhgn3RaK8CrTaeme9cemne', 'jakarta', '0877665544', 'admin', 'staff', 1, '6Rkt6c2kLDkhLjBEZq6iMUSKYwpBSrK2TOy8px6tfhUYvYUlxQ4vYG8P97Q6', '2018-06-27 06:33:53', '2018-06-27 06:33:53');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for work_orders
+-- ----------------------------
+DROP TABLE IF EXISTS `work_orders`;
+CREATE TABLE `work_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `instruction_from` int(11) DEFAULT NULL,
+  `instruction_to` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `notes` text,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of work_orders
+-- ----------------------------
+BEGIN;
+INSERT INTO `work_orders` VALUES (2, 1, 8, 4, 'tolong kerjakan', '2018-06-27 10:38:53', '2018-06-27 10:38:53');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
