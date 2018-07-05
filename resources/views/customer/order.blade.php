@@ -30,7 +30,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="/">Home</a></li>
+				  <li><a href="/salon-hewan/public/">Home</a></li>
 				  <li class="active">Order</li>
 				</ol>
             </div>
@@ -49,7 +49,7 @@
                     <tr>
                         <td>{{ $order->id }}</td>
                         <td>Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
-                        <td><a href="/order/detail/{{ $order->id }}">Detail</a></td>
+                        <td><a href="/salon-hewan/public/order/detail/{{ $order->id }}">Detail</a></td>
                     </tr>
                 <?php
                 endforeach;

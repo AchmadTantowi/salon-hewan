@@ -42,8 +42,8 @@
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -56,22 +56,22 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="/"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
+							<a href="/salon-hewan/public/"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								@if(Auth::check())
-									<li><a href="/order">Order</a></li>
-									<li><a href="/cart">Cart</a></li>
-									<li><a href="/payment-confirmation">Payment Confirmation</a></li>
-									<li><a href="/testimoni">Testimoni</a></li>
-									<li><a href="{{ url('/logout') }}">Logout</a></li>
+									<li><a href="/salon-hewan/public/order">Order</a></li>
+									<li><a href="/salon-hewan/public/cart">Cart</a></li>
+									<li><a href="/salon-hewan/public/payment-confirmation">Payment Confirmation</a></li>
+									<li><a href="/salon-hewan/public/testimoni">Testimoni</a></li>
+									<li><a href="{{ url('/salon-hewan/public/logout') }}">Logout</a></li>
 								@endif
 								@if(!Auth::check())
 								
-								<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="/salon-hewan/public/login"><i class="fa fa-lock"></i> Login</a></li>
 								@endif
 							</ul>
 						</div>
@@ -94,8 +94,8 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="/" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
-								<li><a href="/contact" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li>
+								<li><a href="/salon-hewan/public/" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
+								<li><a href="/salon-hewan/public/contact" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li>
 							</ul>
 						</div>
 					</div>
