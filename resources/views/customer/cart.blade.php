@@ -31,7 +31,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="/">Home</a></li>
+				  <li><a href="/salon-hewan/public/">Home</a></li>
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
@@ -57,7 +57,7 @@
 								Rp. {{ number_format($row->price,0, ',' , '.') }}
 							</td>
 							<td>
-								<a href="cart-remove/{{$row->rowId}}">Delete</a>
+								<a href="/salon-hewan/public/cart-remove/{{$row->rowId}}">Delete</a>
 							</td>
 						</tr>
 					<?php 
@@ -85,7 +85,7 @@
 				<h3>Silahkan lakukan pembayaran</h3>
 			</div>
 			<div class="row">
-				<form role="form" method="POST" action="/save-order">
+				<form role="form" method="POST" action="/salon-hewan/public/save-order">
 				{{ csrf_field() }}
 				<?php foreach(Cart::content() as $row) :?>
 				<input type="hidden" name="user_id[]" value="{{ Auth::user()->id }}">
