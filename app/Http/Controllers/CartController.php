@@ -37,6 +37,18 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
+    public function getNextOrderNumber()
+    {
+        $date = date('Ymd');
+        $format = 'ORD-'.$date.'-';
+        $lastOrder = Order::orderBy('created_at', 'desc')->first();
+        if (!$lastOrder)
+            $number = 0;
+        else 
+            $number = substr($lastOrder->order_id, 3);
+        return $format . sprintf('%04d', intval($number) + 1);
+    }
+
     public function saveOrder(Request $request){
         $productId = $request->get('product_id');
         $replace = str_replace(",","",$request->get('total')[0]);
@@ -45,6 +57,7 @@ class CartController extends Controller
         DB::beginTransaction();
         try{
             $order = new Order;
+            $order->order_id = $this->getNextOrderNumber();
             $order->user_id = $request->get('user_id')[0];
             $order->total = $tot_price;
             $order->save();
@@ -52,7 +65,7 @@ class CartController extends Controller
             for ($i=0; $i < count($productId); $i++) {
                 $getProduct = Product::where('id', $productId[$i])->first();
                 $orderDetail = new OrderDetail;
-                $orderDetail->order_id = $order->id;
+                $orderDetail->order_id = $order->order_id;
                 $orderDetail->product_id = $productId[$i];
                 $orderDetail->qty = 1;
                 $orderDetail->subTotal = $getProduct->price;

@@ -36,7 +36,7 @@
 				</ol>
 			</div>
 			<div class="step-one">
-				<h2 class="heading">Order #{{ $orders->id }}</h2>
+				<h2 class="heading">#{{ $orders->order_id }}</h2>
             </div>
             <table id="customers">
                 <thead>
@@ -61,6 +61,10 @@
                 <?php
                 endforeach;
                 ?>
+                <tr>
+                    <td colspan="3"><b>Total Price</b></td>
+                    <td><b>Rp. {{ number_format($orders->total,0, ',' , '.') }}</b></td>
+                </tr>
                 </tbody>
             </table>
 		</div>

@@ -11,7 +11,7 @@
  Target Server Version : 100132
  File Encoding         : 65001
 
- Date: 28/06/2018 00:07:57
+ Date: 13/07/2018 01:06:02
 */
 
 SET NAMES utf8mb4;
@@ -88,21 +88,21 @@ COMMIT;
 DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE `order_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL,
+  `order_id` varchar(50) NOT NULL,
   `product_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `subtotal` decimal(10,0) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of order_details
 -- ----------------------------
 BEGIN;
-INSERT INTO `order_details` VALUES (3, 4, 20, 1, 299000, '2018-06-23 13:21:09', '2018-06-23 13:21:09');
-INSERT INTO `order_details` VALUES (4, 4, 21, 1, 26000, '2018-06-23 13:21:09', '2018-06-23 13:21:09');
+INSERT INTO `order_details` VALUES (21, 'ORD-20180712-0001', 21, 1, 26000, '2018-07-12 18:05:02', '2018-07-12 18:05:02');
+INSERT INTO `order_details` VALUES (22, 'ORD-20180712-0001', 22, 1, 25000, '2018-07-12 18:05:02', '2018-07-12 18:05:02');
 COMMIT;
 
 -- ----------------------------
@@ -111,18 +111,19 @@ COMMIT;
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL,
   `total` decimal(10,0) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
 BEGIN;
-INSERT INTO `orders` VALUES (4, 3, 393250, '2018-06-23 13:21:09', '2018-06-23 13:21:09');
+INSERT INTO `orders` VALUES (20, 'ORD-20180712-0001', 5, 51000, '2018-07-12 18:05:02', '2018-07-12 18:05:02');
 COMMIT;
 
 -- ----------------------------

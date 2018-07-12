@@ -27,7 +27,7 @@ class OrderFrontController extends Controller
     }
 
     public function orderDetail($orderId){
-        $orders = Order::where('id', $orderId)->first();
+        $orders = Order::where('order_id', $orderId)->first();
         $orderDetails = OrderDetail::where('order_id', $orderId)->get();
         return view('customer.order_detail', compact('orders','orderDetails'));
     }

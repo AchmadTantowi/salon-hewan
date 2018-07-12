@@ -90,12 +90,12 @@
 				<?php foreach(Cart::content() as $row) :?>
 				<input type="hidden" name="user_id[]" value="{{ Auth::user()->id }}">
 				<input type="hidden" name="product_id[]" value="{{ $row->id }}">
-				<input type="hidden" name="total[]" value="{{ Cart::total() }}">
+				<input type="hidden" name="total[]" value="{{ Cart::subtotal() }}">
 				<?php endforeach; ?>
 					<div class="col-sm-12">
 						<div class="total_area">
 							<ul>
-							<p style="font-size: 16px;">Transfer pembayaran sebesar <b>Rp. <?php echo Cart::total(); ?></b> ke rekening BCA dengan nomor rekening 11 2222 344 a/n Happy Pets,<br> setelah selesai melakukan pembayaran silahkan lakukan konfirmasi pembayaran</p>
+							<p style="font-size: 16px;">Transfer pembayaran sebesar <b>Rp. <?php echo Cart::subtotal(); ?></b> ke rekening BCA dengan nomor rekening 11 2222 344 a/n Happy Pets,<br> setelah selesai melakukan pembayaran silahkan lakukan konfirmasi pembayaran</p>
 							</ul>
 							<button type="submit" class="btn btn-default update">Selesai</button>
 						</div>
