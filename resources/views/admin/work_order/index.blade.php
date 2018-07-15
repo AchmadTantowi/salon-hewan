@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/admin/work-order/add">
+              <a href="/salon-hewan/public/admin/work-order/add">
                 <button type="button" class="btn btn-info">Add</button>
               </a>
             </div>
@@ -41,7 +41,7 @@
                 <td>{{ $workOrder->order_id }}</td>
                 <td>{{ $workOrder->notes }}</td>
                 <td>
-                    <a href="/admin/work-order/print" target="_blank">
+                    <a href="/salon-hewan/public/admin/work-order/print" target="_blank">
                         <i class="fa fa-print"></i> Print 
                     </a>
                 </td>

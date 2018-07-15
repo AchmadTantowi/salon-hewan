@@ -15,49 +15,49 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-          <a href="/admin/dashboard">
+          <a href="/salon-hewan/public/admin/dashboard">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/customer') ? 'active' : '' }}">
-          <a href="/admin/customer">
+          <a href="/salon-hewan/public/admin/customer">
           <i class="fa fa-users"></i> <span>Customer</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/product') ? 'active' : '' }}">
-          <a href="/admin/product">
+          <a href="/salon-hewan/public/admin/product">
           <i class="fa fa-briefcase"></i> <span>Product</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/contact') ? 'active' : '' }}">
-          <a href="/admin/contact">
+          <a href="/salon-hewan/public/admin/contact">
           <i class="fa fa-phone"></i> <span>Contact</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/testimoni') ? 'active' : '' }}">
-          <a href="/admin/testimoni">
+          <a href="/salon-hewan/public/admin/testimoni">
           <i class="fa fa-wechat"></i> <span>Testimoni</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/confirm') ? 'active' : '' }}">
-          <a href="/admin/confirm">
+          <a href="/salon-hewan/public/admin/confirm">
           <i class="fa fa-print"></i> <span>Confirm Payment</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/work-order') ? 'active' : '' }}">
-          <a href="/admin/work-order">
+          <a href="/salon-hewan/public/admin/work-order">
           <i class="fa fa-file-word-o"></i> <span>Work Order</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
         <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
-          <a href="/admin/user">
+          <a href="/salon-hewan/public/admin/user">
           <i class="fa fa-user"></i> <span>User</span>
             <span class="pull-right-container"></span>
           </a>

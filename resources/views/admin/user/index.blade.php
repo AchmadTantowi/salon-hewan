@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/admin/user/add">
+              <a href="/salon-hewan/public/admin/user/add">
                 <button type="button" class="btn btn-info">Add</button>
               </a>
             </div>

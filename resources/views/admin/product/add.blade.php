@@ -27,7 +27,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="/admin/product/save-product">
+            <form role="form" method="POST" enctype="multipart/form-data" action="/salon-hewan/public/admin/product/save-product">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
