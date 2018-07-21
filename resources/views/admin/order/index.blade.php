@@ -6,7 +6,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>User</h1>
+      <h1>Orders</h1>
     </section>
     <!-- Main content -->
     <section class="content">
@@ -14,39 +14,34 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/salon-hewan/public/admin/user/add">
-                <button type="button" class="btn btn-info">Add</button>
-              </a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Position</th>
-                  <th></th>
+                    <th>No</th>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @php($no = 1)
-                @foreach($users as $user)
+                @foreach($orders as $order)
                 <tr>
-                <td>{{ $no++ }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone }}</td>
-                <td>{{ $user->position }}</td>
-                <td>
-                    <a href="/admin/user/edit/{{ $user->id }}">
-                    Edit
-                    </a> |
-                    <a href="/admin/user/delete/{{ $user->id }}">
-                    Delete
-                </td>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $order->order_id }}</td>
+                    <td>{{ $order->user->name }}</td>
+                    <td>{{ $order->status }}</td>
+                    <td>Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
+                    <td>
+                        <a href="/admin/order/edit/{{ $order->order_id }}">
+                            Edit 
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

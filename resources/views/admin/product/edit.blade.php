@@ -6,7 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Product
+        Edit product
       </h1>
     </section>
     <!-- Main content -->
@@ -27,28 +27,30 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"></h3>
+             
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="/salon-hewan/public/admin/product/save-product">
+            <form role="form" method="POST" enctype="multipart/form-data" action="/admin/product/update/{{ $product->id }}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                  <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{ $product->name }}"  placeholder="Enter name">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Description</label>
-                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter description">
+                  <input type="text" name="description" class="form-control" id="exampleInputEmail1" value="{{ $product->description }}"  placeholder="Enter description">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Price</label>
-                  <input type="number" name="price" class="form-control" id="exampleInputEmail1" placeholder="Enter price">
+                  <input type="number" name="price" class="form-control" id="exampleInputEmail1" value="{{ $product->price }}"  placeholder="Enter price">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Image</label>
+                  <label for="exampleInputEmail1">Image</label><br>
+                  <img src="data:image/png;base64, {{ $product->image }}" width="300px" height="250px" alt="" />
                   <input type="file" name="file" class="form-control" id="exampleInputEmail1">
+                  <span>* Jika gambar tidak diubah kosongkan saja</span>
                 </div>
               </div>
               <!-- /.box-body -->

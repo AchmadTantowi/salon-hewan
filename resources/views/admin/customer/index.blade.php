@@ -40,7 +40,7 @@
                     @if($customer->verified)
                         <small class="label bg-green">Verified</small>
                     @else
-                        <a href="/admin/customer/verified/{{ $customer->id }}">
+                        <a href="/salon-hewan/public/admin/customer/verified/{{ $customer->id }}">
                             <small class="label bg-red">Unverified</small>
                         </a>
                     @endif
