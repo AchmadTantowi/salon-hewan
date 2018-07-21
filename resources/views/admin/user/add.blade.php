@@ -14,11 +14,21 @@
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif 
           <!-- general form elements -->
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="/admin/user/save-user">
+            <form role="form" method="POST" action="/admin/user/save-user">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -27,7 +37,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email</label>
-                  <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Password</label>
@@ -44,9 +54,9 @@
                 <div class="form-group">
                   <label for="exampleInputEmail1">Position</label>
                   <select class="form-control" name="position">
-                    <option value="admin">Admin</option>
-                    <option value="staff">Staff Grooming</option>
-                    <option value="pemilik">Pemilik</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Staff Grooming">Staff Grooming</option>
+                    <option value="Pemilik">Pemilik</option>
                   </select>
                 </div>
               </div>

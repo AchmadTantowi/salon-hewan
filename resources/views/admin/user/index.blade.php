@@ -27,6 +27,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
+                  <th>Position</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -38,8 +39,13 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone }}</td>
+                <td>{{ $user->position }}</td>
                 <td>
-
+                    <a href="/admin/user/edit/{{ $user->id }}">
+                    Edit
+                    </a> |
+                    <a href="/admin/user/delete/{{ $user->id }}">
+                    Delete
                 </td>
                 </tr>
                 @endforeach

@@ -49,9 +49,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/product', 'Admin\ProductController@index');
     Route::get('/product/add', 'Admin\ProductController@add');
     Route::post('/product/save-product', 'Admin\ProductController@saveProduct');
+    Route::get('/product/edit/{id}', 'Admin\ProductController@edit');
+    Route::post('/product/update/{id}', 'Admin\ProductController@update');
+    Route::get('/product/delete/{id}', 'Admin\ProductController@delete');
 
     // CONTACT
     Route::get('/contact', 'Admin\ContactController@index');
+
+    // ORDER
+    Route::get('/order', 'Admin\OrderController@index');
+    Route::get('/order/edit/{orderId}', 'Admin\OrderController@edit');
+    Route::post('/order/update/{orderId}', 'Admin\OrderController@update');
 
     // TESTIMONI
     Route::get('/testimoni', 'Admin\TestimoniController@index');
@@ -63,6 +71,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/user', 'Admin\UserController@index');
     Route::get('/user/add', 'Admin\UserController@add');
     Route::post('/user/save-user', 'Admin\UserController@saveUser');
+    Route::get('/user/edit/{id}', 'Admin\UserController@edit');
+    Route::post('/user/update/{id}', 'Admin\UserController@update');
+    Route::get('/user/delete/{id}', 'Admin\UserController@delete');
 
     // CUSTOMER
     Route::get('/customer', 'Admin\CustomerController@index');

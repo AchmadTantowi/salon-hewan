@@ -35,9 +35,13 @@
                 <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $product->name }}</td>
-                <td>{{ $product->price }}</td>
+                <td align="right">Rp. {{ number_format($product->price,0, ',' , '.') }}</td>
                 <td>
-
+                    <a href="/admin/product/edit/{{ $product->id }}">
+                    Edit
+                    </a> |
+                    <a href="/admin/product/delete/{{ $product->id }}">
+                    Delete
                 </td>
                 </tr>
                 @endforeach

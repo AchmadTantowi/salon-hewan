@@ -27,7 +27,14 @@ class UserController extends Controller
 
     public function saveUser(Request $request)
     {
-        
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'position' => 'required'
+        ]);
         $user = User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
@@ -44,6 +51,55 @@ class UserController extends Controller
         }
     }
 
+    public function edit($id){
+        $user = User::where('id', $id)->first();
+        return view('admin.user.edit', compact('user'));
+    }
+
+    public function update($id, Request $request){
+        $pass = $request->get('password');
+        if(!is_null($pass)){
+            $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required',
+                'address' => 'required',
+                'phone' => 'required',
+                'position' => 'required'
+            ]);
+        } else {
+            $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required',
+                'address' => 'required',
+                'phone' => 'required',
+                'position' => 'required'
+            ]);
+        }
+        
+        $user = User::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->address = $request->get('address');
+        $user->phone = $request->get('phone');
+        $user->position = $request->get('position');
+
+        if(!is_null($pass)){
+            $user->password = bcrypt($request->get('password'));
+        }
+       
+        $user->save();
+        alert()->success('Updated','Successfully');
+        return redirect('/admin/user');
+    }
     
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        if($user){
+            alert()->success('Deleted','Successfully');
+            return redirect('/admin/user');
+        }
+    }
 
 }

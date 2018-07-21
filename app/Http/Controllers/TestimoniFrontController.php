@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Testimoni;
+use App\Order;
 use Auth;
 
 class TestimoniFrontController extends Controller
@@ -23,11 +24,18 @@ class TestimoniFrontController extends Controller
     public function testimoni()
     {
         // dd(Auth::user());
-        return view('customer.testimoni');
+        $list_orders = Order::where('user_id', Auth::user()->id)->where('status', 'Finish')->get();
+        return view('customer.testimoni', compact('list_orders'));
     }
 
     public function sendTestimoni(Request $request){
+        $this->validate($request, [
+            'order_id' => 'required|unique:testimonis',
+            'title' => 'required',
+            'description' => 'required'
+        ]);
         $testimoni = Testimoni::create([
+            'order_id' => $request->get('order_id'),
             'user_id' => Auth::user()->id,
             'title' => $request->get('title'),
             'description' => $request->get('description')

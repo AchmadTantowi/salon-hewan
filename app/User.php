@@ -36,6 +36,7 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\ConfirmPayment', 'user_id');
     }
+    
 
     
 

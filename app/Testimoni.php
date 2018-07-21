@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Testimoni extends Model
 {
     protected $fillable = [
-        'user_id', 'title', 'description'
+        'order_id', 'user_id', 'title', 'description'
     ];
 
     public function user()

@@ -45,7 +45,8 @@ class CartController extends Controller
         if (!$lastOrder)
             $number = 0;
         else 
-            $number = substr($lastOrder->order_id, 3);
+            $number = substr($lastOrder->order_id, 13);
+            // dd($number);
         return $format . sprintf('%04d', intval($number) + 1);
     }
 
@@ -59,6 +60,7 @@ class CartController extends Controller
             $order = new Order;
             $order->order_id = $this->getNextOrderNumber();
             $order->user_id = $request->get('user_id')[0];
+            $order->status = "Waiting Confirmation";
             $order->total = $tot_price;
             $order->save();
 

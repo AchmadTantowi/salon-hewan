@@ -24,9 +24,10 @@ class WorkOrderController extends Controller
 
     public function add()
     {
-        $users = User::where('role', 'admin')->get();
+        $froms = User::where('position', 'Pemilik')->get();
+        $tos = User::where('position', 'Staff Grooming')->get();
         $orders = Order::get();
-        return view('admin.work_order.add', compact('users','orders'));
+        return view('admin.work_order.add', compact('froms','tos','orders'));
     }
 
     public function saveWorkOrder(Request $request)
