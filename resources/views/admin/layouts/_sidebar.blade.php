@@ -21,7 +21,8 @@
           </a>
         </li>
         <li class="{{ Request::is('admin/customer') ? 'active' : '' }}">
-          <a href="/salon-hewan/public/admin/customer">
+          {{-- <a href="/salon-hewan/public/admin/customer"> --}}
+            <a href="/admin/customer">
           <i class="fa fa-users"></i> <span>Customer</span>
             <span class="pull-right-container"></span>
           </a>
