@@ -27,7 +27,8 @@
           </a>
         </li>
         <li class="{{ Request::is('admin/order') ? 'active' : '' }}">
-          <a href="/admin/order">
+          <a href="/salon-hewan/public/admin/order">
+          <!-- <a href="/admin/order"> -->
           <i class="fa fa-users"></i> <span>Orders</span>
             <span class="pull-right-container"></span>
           </a>
