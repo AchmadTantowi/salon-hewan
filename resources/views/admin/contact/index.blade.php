@@ -25,6 +25,7 @@
                   <th>Email</th>
                   <th>Subject</th>
                   <th>Message</th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,9 @@
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->subject }}</td>
                 <td>{{ $contact->message }}</td>
+                <td>
+
+                </td>
                 </tr>
                 @endforeach
                 </tbody>

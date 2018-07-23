@@ -38,8 +38,7 @@
                     <td>{{ $order->status }}</td>
                     <td>Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
                     <td>
-                        <a href="/salon-hewan/public/admin/order/edit/{{ $order->order_id }}">
-                        <!-- <a href="/admin/order/edit/{{ $order->order_id }}"> -->
+                        <a href="/admin/order/edit/{{ $order->order_id }}">
                             Edit 
                         </a>
                     </td>

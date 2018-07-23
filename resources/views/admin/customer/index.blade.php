@@ -22,10 +22,10 @@
                 <tr>
                   <th>No</th>
                   <th>Name</th>
-                  <th>Address</th>
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Status</th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,6 @@
                 <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $customer->name }}</td>
-                <td>{{ $customer->address }}</td>
                 <td>{{ $customer->email }}</td>
                 <td>{{ $customer->phone }}</td>
                 <td>
@@ -45,6 +44,9 @@
                             <small class="label bg-red">Unverified</small>
                         </a>
                     @endif
+                </td>
+                <td>
+
                 </td>
                 </tr>
                 @endforeach

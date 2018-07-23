@@ -19,8 +19,7 @@
 	    			<div class="contact-form">
 	    				<h2 class="title text-center">Payment Confirmation</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
-	    				<!-- <form id="main-contact-form" class="contact-form row" enctype="multipart/form-data" name="contact-form" method="post" action="/sendPaymentConfirmation"> -->
-				    	<form id="main-contact-form" class="contact-form row" enctype="multipart/form-data" name="contact-form" method="post" action="/salon-hewan/public/sendPaymentConfirmation">
+				    	<form id="main-contact-form" class="contact-form row" enctype="multipart/form-data" name="contact-form" method="post" action="/sendPaymentConfirmation">
 						{{ csrf_field() }}
 							<div class="form-group col-md-12">
 								<select class="form-control" name="order_id">
