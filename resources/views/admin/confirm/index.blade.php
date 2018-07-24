@@ -26,7 +26,7 @@
                   <th>Account Number</th>
                   <th>Amount</th>
                   <th>Photo</th>
-                  <th></th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,10 +37,15 @@
                 <td>{{ $confirm->user->name }}</td>
                 <td>{{ $confirm->bank_account }}</td>
                 <td>{{ $confirm->account_number }}</td>
-                <td>{{ $confirm->amount }}</td>
-                <td></td>
+                <td>Rp. {{ number_format($confirm->amount,0, ',' , '.') }}</td>
                 <td>
-
+                    <img src="data:image/png;base64, {{ $confirm->photo }}" width="100px" height="100px" alt="" />
+                </td>
+                <td>
+                    <a href="/admin/confirm/verified/{{ $confirm->order_id }}">
+                      <small class="label bg-blue">Proccess Verified</small>
+                    </a>
+                    
                 </td>
                 </tr>
                 @endforeach

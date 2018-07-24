@@ -40,6 +40,12 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function unverified()
+    {
+        alert()->info('Unverified','Akun Anda belum diverifikasi');
+        return redirect('/');
+    }
+
     public function sendContact(Request $request){
         $contact = Contact::create([
             'name' => $request->get('name'),

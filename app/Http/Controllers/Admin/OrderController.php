@@ -38,4 +38,12 @@ class OrderController extends Controller
         return redirect('/admin/order');
     }
 
+    public function complete($order_id){
+        $order = Order::where('order_id', $order_id)->first();
+        $order->status = "Finish";
+        $order->save();
+        alert()->success('Success','Completed');
+        return redirect('/admin/order');
+    }
+
 }

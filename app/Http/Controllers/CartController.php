@@ -60,7 +60,7 @@ class CartController extends Controller
             $order = new Order;
             $order->order_id = $this->getNextOrderNumber();
             $order->user_id = $request->get('user_id')[0];
-            $order->status = "Waiting Confirmation";
+            $order->status = "Waiting Payment Confirmation";
             $order->total = $tot_price;
             $order->save();
 

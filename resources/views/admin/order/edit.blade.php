@@ -32,9 +32,10 @@
                 <tr>
                     <td>Status Order</td><td>&nbsp;:&nbsp;</td><td>
                     <select class="form-control" name="status">
-                        <option {{ $order->status == 'Waiting Confirmation' ? 'selected':'' }}>Waiting Confirmation</option>
-                        <option {{ $order->status == 'Packing' ? 'selected':'' }}>Packing</option>
-                        <option {{ $order->status == 'Delivered' ? 'selected':'' }}>Delivered</option>
+                        <option {{ $order->status == 'Waiting Payment Confirmation' ? 'selected':'' }}>Waiting Payment Confirmation</option>
+                        <option {{ $order->status == 'Waiting Verified Payment' ? 'selected':'' }}>Waiting Verified Payment</option>
+                        <option {{ $order->status == 'Verified Payment' ? 'selected':'' }}>Verified Payment</option>
+                        <option {{ $order->status == 'Work Order' ? 'selected':'' }}>Work Order</option>
                         <option {{ $order->status == 'Finish' ? 'selected':'' }}>Finish</option>
                     </select>
                     </td>

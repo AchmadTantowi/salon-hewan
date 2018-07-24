@@ -39,7 +39,10 @@
                     <td>Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
                     <td>
                         <a href="/admin/order/edit/{{ $order->order_id }}">
-                            Edit 
+                            Edit
+                        </a> |
+                        <a href="/admin/order/complete/{{ $order->order_id }}">
+                          <small class="label bg-blue">Complete ?</small> 
                         </a>
                     </td>
                 </tr>

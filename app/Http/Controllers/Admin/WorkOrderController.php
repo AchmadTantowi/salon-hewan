@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\WorkOrder;
 use App\User;
 use App\Order;
+use DB;
 
 class WorkOrderController extends Controller
 {
@@ -32,14 +33,27 @@ class WorkOrderController extends Controller
 
     public function saveWorkOrder(Request $request)
     {
-        $workOrder = WorkOrder::create([
-            'instruction_from' => $request->get('instruction_from'),
-            'instruction_to' => $request->get('instruction_to'),
-            'order_id' => $request->get('order_id'),
-            'notes' => $request->get('notes')
-          ]);
-        if($workOrder){
+        DB::beginTransaction();
+        try{
+            $workOrder = WorkOrder::create([
+                'instruction_from' => $request->get('instruction_from'),
+                'instruction_to' => $request->get('instruction_to'),
+                'order_id' => $request->get('order_id'),
+                'notes' => $request->get('notes')
+              ]);
+
+            $order = Order::where('order_id', $request->get('order_id'))->first();
+            $order->status = "Work Order";
+            $order->save();
+
+            DB::commit();
+
             alert()->success('Success','Saved');
+            return redirect('/admin/work-order');
+        }
+        catch(QueryException $e){
+            DB::rollback();
+            alert()->error('Failed','Not Saved');
             return redirect('/admin/work-order');
         }
     }

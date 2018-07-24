@@ -63,15 +63,23 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								@if(Auth::check())
+									@if (Auth::user()->verified == 0)
+									<li><a href="/unverified">Order</a></li>
+									<li><a href="/unverified">Cart</a></li>
+									<li><a href="/unverified">Payment Confirmation</a></li>
+									<li><a href="/unverified">Testimoni</a></li>
+									@else
 									<!-- <li><a href="/salon-hewan/public/order">Order</a></li>
 									<li><a href="/salon-hewan/public/cart">Cart</a></li>
 									<li><a href="/salon-hewan/public/payment-confirmation">Payment Confirmation</a></li>
-									<li><a href="/salon-hewan/public/testimoni">Testimoni</a></li>
-									<li><a href="{{ url('/salon-hewan/public/logout') }}">Logout</a></li> -->
+									<li><a href="/salon-hewan/public/testimoni">Testimoni</a></li>-->
+								
 									<li><a href="/order">Order</a></li>
 									<li><a href="/cart">Cart</a></li>
 									<li><a href="/payment-confirmation">Payment Confirmation</a></li>
 									<li><a href="/testimoni">Testimoni</a></li>
+									
+									@endif
 									<li><a href="{{ url('/logout') }}">Logout</a></li>
 								@endif
 								@if(!Auth::check())

@@ -25,7 +25,7 @@ class LoginController extends Controller
     {   
         // dd($user->role);
         if($user->role == 'customer'){
-            return redirect('/order');
+            return redirect('/');
         } else {   
             return redirect('/admin/dashboard');
         }

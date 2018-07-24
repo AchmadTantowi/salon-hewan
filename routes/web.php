@@ -18,6 +18,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/payment-confirmation', 'HomeController@paymentConfirmation');
 Route::get('/logout', 'HomeController@logout');
+Route::get('/unverified', 'HomeController@unverified');
 
 // CART
 Route::post('/addToCart', 'HomeController@addToCart');
@@ -59,6 +60,7 @@ Route::prefix('admin')->group(function () {
     // ORDER
     Route::get('/order', 'Admin\OrderController@index');
     Route::get('/order/edit/{orderId}', 'Admin\OrderController@edit');
+    Route::get('/order/complete/{orderId}', 'Admin\OrderController@complete');
     Route::post('/order/update/{orderId}', 'Admin\OrderController@update');
 
     // TESTIMONI
@@ -66,6 +68,7 @@ Route::prefix('admin')->group(function () {
 
     // CONFIRM PAYMENT
     Route::get('/confirm', 'Admin\ConfirmController@index');
+    Route::get('/confirm/verified/{order_id}', 'Admin\ConfirmController@verifiedPayment');
 
     // USER
     Route::get('/user', 'Admin\UserController@index');
