@@ -37,6 +37,7 @@ Route::post('/sendTestimoni', 'TestimoniFrontController@sendTestimoni');
 // PAYMENT CONFIRMATION
 Route::get('/payment-confirmation', 'PaymentConfirmController@paymentConfirmation');
 Route::post('/sendPaymentConfirmation', 'PaymentConfirmController@sendPaymentConfirmation');
+Route::post('select-amount', ['as'=>'select-amount', 'uses'=>'PaymentConfirmController@selectAmountAjax']);
 
 // ORDER
 Route::get('/order', 'OrderFrontController@index');
@@ -85,8 +86,9 @@ Route::prefix('admin')->group(function () {
     // WORK ORDER
     Route::get('/work-order', 'Admin\WorkOrderController@index');
     Route::get('/work-order/add', 'Admin\WorkOrderController@add');
-    Route::get('/work-order/print', 'Admin\WorkOrderController@print');
+    Route::get('/work-order/print/{id}', 'Admin\WorkOrderController@print');
     Route::post('/work-order/save-workorder', 'Admin\WorkOrderController@saveWorkOrder');
+    Route::post('select-customer', ['as'=>'select-customer', 'uses'=>'Admin\WorkOrderController@selectCustomerAjax']);
 });
 
 Auth::routes();

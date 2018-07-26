@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class WorkOrder extends Model
 {
     protected $fillable = [
-        'instruction_from', 'instruction_to', 'order_id', 'notes'
+        'wo_number', 'instruction_from', 'instruction_to', 'order_id', 'notes'
     ];
 
     public function from()
@@ -19,4 +19,6 @@ class WorkOrder extends Model
     {
         return $this->belongsTo('App\User', 'instruction_to');
     }
+
+
 }

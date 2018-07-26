@@ -23,20 +23,21 @@
 						{{ csrf_field() }}
 							<div class="form-group col-md-12">
 								<select class="form-control" name="order_id">
-									<option disabled>-- Order ID --</option>
+									<option value="">-- Order ID --</option>
 									@foreach($list_orders as $list_order)
 										<option value="{{$list_order->order_id}}">{{$list_order->order_id}}</option>
 									@endforeach
 								</select>
-				            </div>
+							</div>
+							<div class="form-group col-md-12">
+								<input type="hidden" name="amount" id="amount" class="form-control" required="required" placeholder="Amount" readonly>
+								<input type="number" name="rupiah" id="rupiah" class="form-control" required="required" readonly>							
+							</div>
 				            <div class="form-group col-md-12">
 				                <input type="text" name="bank_account" class="form-control" required="required" placeholder="Bank Account">
 				            </div>
 				            <div class="form-group col-md-12">
 				                <input type="text" name="account_number" class="form-control" required="required" placeholder="Account Number">
-                            </div>
-                            <div class="form-group col-md-12">
-				                <input type="number" name="amount" class="form-control" required="required" placeholder="Amount">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="">Proof of payment</label>
@@ -53,3 +54,31 @@
     </div><!--/#contact-page-->
 
 @endsection
+@section('script')
+<script type="text/javascript">
+  $("select[name='order_id']").change(function(){
+	
+	  var order_id = $(this).val();
+	  var token = $("input[name='_token']").val();
+	  $.ajax({
+		  url: "{{ route('select-amount') }}",
+		  method: 'POST',
+		  data: {order_id:order_id, _token:token},
+		  success: function(data) {
+			var	number_string = data.options.total.toString(),
+			sisa 	= number_string.length % 3,
+			rupiah 	= number_string.substr(0, sisa),
+			ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+				
+			if (ribuan) {
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+			
+			$("#amount").val(data.options.total);
+			$("#rupiah").val(rupiah);
+		  }
+	  });
+  });
+</script>
+@stop

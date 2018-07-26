@@ -20,7 +20,7 @@ class PaymentConfirmController extends Controller
     // PAYMENT CONFIRMATION
     public function paymentConfirmation()
     {
-        $list_orders = Order::where('user_id', Auth::user()->id)->where('status', '!=', 'Finish')->get();
+        $list_orders = Order::where('user_id', Auth::user()->id)->where('status', '=', 'Waiting Payment Confirmation')->get();
         return view('customer.payment_confirmation', compact('list_orders'));
     }
 
@@ -68,6 +68,13 @@ class PaymentConfirmController extends Controller
             return redirect('/payment-confirmation');
         }
 
+    }
+
+    public function selectAmountAjax(Request $request){
+        if($request->ajax()){
+    		$order = DB::table('orders')->where('order_id',$request->order_id)->first();
+    		return response()->json(['options'=>$order]);
+    	}
     }
 
 

@@ -27,7 +27,11 @@
                 <tr>
                     <td>Total</td><td>&nbsp;:&nbsp;</td><td> Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
                 </tr>
-                <form method="POST" action="/admin/order/update/{{$order->id}}">
+                <tr>
+                    <td>Status</td><td>&nbsp;:&nbsp;</td><td> {{ $order->status }}</td>
+                </tr>
+        
+                {{-- <form method="POST" action="/admin/order/update/{{$order->id}}">
                 {{ csrf_field() }}
                 <tr>
                     <td>Status Order</td><td>&nbsp;:&nbsp;</td><td>
@@ -45,7 +49,7 @@
                     <button type="submit" class="btn btn-primary">Update</button>
                     </td>
                 </tr>
-                </form>
+                </form> --}}
                 </tbody>
             </table>
             <br>

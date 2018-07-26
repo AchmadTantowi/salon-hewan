@@ -25,9 +25,11 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Instruction from</th>
-                  <th>Instruction to</th>
+                  <th>Work Order Number</th>
                   <th>Order</th>
+                  {{-- <th>Customer</th> --}}
+                  {{-- <th>Instruction from</th> --}}
+                  <th>Instruction to</th>
                   <th>Notes</th>
                   <th>Action</th>
                 </tr>
@@ -37,12 +39,15 @@
                 @foreach($workOrders as $workOrder)
                 <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $workOrder->from->name }}</td>
-                <td>{{ $workOrder->to->name }}</td>
+                <td>{{ $workOrder->wo_number }}</td>
                 <td>{{ $workOrder->order_id }}</td>
+                {{-- <td>{{ $workOrder->name }}</td> --}}
+                {{-- <td>{{ $workOrder->from->name }}</td> --}}
+                <td>{{ $workOrder->to->name }}</td>
                 <td>{{ $workOrder->notes }}</td>
                 <td>
-                    <a href="/salon-hewan/public/admin/work-order/print" target="_blank">
+                    {{-- <a href="/salon-hewan/public/admin/work-order/print" target="_blank"> --}}
+                    <a href="/admin/work-order/print/{{$workOrder->id}}" target="_blank">
                         <i class="fa fa-print"></i> Print 
                     </a>
                 </td>

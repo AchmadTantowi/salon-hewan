@@ -43,7 +43,7 @@
                 </td>
                 <td>
                     <a href="/admin/confirm/verified/{{ $confirm->order_id }}">
-                      <small class="label bg-blue">Proccess Verified</small>
+                      <small class="label bg-blue">Proccess Confirm</small>
                     </a>
                     
                 </td>
