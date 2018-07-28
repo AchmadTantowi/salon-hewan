@@ -16,7 +16,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
           <a href="{{ url('/admin/dashboard') }}">
-          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>Home</span>
             <span class="pull-right-container"></span>
           </a>
         </li>

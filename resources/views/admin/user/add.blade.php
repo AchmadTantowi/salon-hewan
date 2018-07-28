@@ -28,7 +28,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="/salon-hewan/public/admin/user/save-user">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/user/save-user') }}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">

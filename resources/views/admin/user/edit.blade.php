@@ -28,7 +28,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/admin/user/update/{{$user->id}}">
+            <form role="form" method="POST" action="{{ url('/admin/user/update/') }}/{{$user->id}}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -57,7 +57,7 @@
                   <select class="form-control" name="position">
                     <option {{ $user->position == 'Admin' ? 'selected':'' }}>Admin</option>
                     <option {{ $user->position == 'Staff Grooming' ? 'selected':'' }}>Staff Grooming</option>
-                    <option {{ $user->position == 'BannPemiliker' ? 'selected':'' }}>Pemilik</option>
+                    <option {{ $user->position == 'Pemilik' ? 'selected':'' }}>Pemilik</option>
                   </select>
                 </div>
               </div>
