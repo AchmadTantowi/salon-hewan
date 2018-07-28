@@ -59,7 +59,7 @@
 											<h2>Rp. {{ number_format($product->price,0, ',' , '.') }}</h2>
 											<p>{{ $product->name }}</p>
 											<!-- <form action="/salon-hewan/public/addToCart" method="POST"> -->
-											<form action="/addToCart" method="POST">
+											<form action="{{ url('/addToCart') }}" method="POST">
 												{!! csrf_field() !!}
 												<input type="hidden" name="id" value="{{ $product->id }}">
 												<input type="hidden" name="name" value="{{ $product->name }}">
@@ -76,7 +76,7 @@
 												<h2>Rp. {{ number_format($product->price,0, ',' , '.') }}</h2>
 												<p>{{ $product->name }}</p>
 												<!-- <form action="/salon-hewan/public/addToCart" method="POST"> -->
-												<form action="/addToCart" method="POST">
+												<form action="{{ url('/addToCart') }}" method="POST">
 													{!! csrf_field() !!}
 													<input type="hidden" name="id" value="{{ $product->id }}">
 													<input type="hidden" name="name" value="{{ $product->name }}">

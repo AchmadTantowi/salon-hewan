@@ -42,7 +42,7 @@
                     <img src="data:image/png;base64, {{ $confirm->photo }}" width="100px" height="100px" alt="" />
                 </td>
                 <td>
-                    <a href="/admin/confirm/verified/{{ $confirm->order_id }}">
+                    <a href="{{ url('/admin/confirm/verified/') }}/{{ $confirm->order_id }}">
                       <small class="label bg-blue">Proccess Confirm</small>
                     </a>
                     

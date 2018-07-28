@@ -56,7 +56,8 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="/salon-hewan/public/"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
+							<!-- <a href="/salon-hewan/public/"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a> -->
+							<a href="{{ url('/public') }}"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -64,28 +65,27 @@
 							<ul class="nav navbar-nav">
 								@if(Auth::check())
 									@if (Auth::user()->verified == 0)
-									<li><a href="/unverified">Order</a></li>
-									<li><a href="/unverified">Cart</a></li>
-									<li><a href="/unverified">Payment Confirmation</a></li>
-									<li><a href="/unverified">Testimoni</a></li>
+									<li><a href="{{ url('/unverified') }}">Order</a></li>
+									<li><a href="{{ url('/unverified') }}">Cart</a></li>
+									<li><a href="{{ url('/unverified') }}">Payment Confirmation</a></li>
+									<li><a href="{{ url('/unverified') }}">Testimoni</a></li>
 									@else
 									<!-- <li><a href="/salon-hewan/public/order">Order</a></li>
 									<li><a href="/salon-hewan/public/cart">Cart</a></li>
 									<li><a href="/salon-hewan/public/payment-confirmation">Payment Confirmation</a></li>
 									<li><a href="/salon-hewan/public/testimoni">Testimoni</a></li>-->
 								
-									<li><a href="/order">Order</a></li>
-									<li><a href="/cart">Cart</a></li>
-									<li><a href="/payment-confirmation">Payment Confirmation</a></li>
-									<li><a href="/testimoni">Testimoni</a></li>
-									
+									<li><a href="{{ url('/order') }}">Order</a></li>
+									<li><a href="{{ url('/cart') }}">Cart</a></li>
+									<li><a href="{{ url('/payment-confirmation') }}">Payment Confirmation</a></li>
+									<li><a href="{{ url('/testimoni') }}">Testimoni</a></li>
 									@endif
 									<li><a href="{{ url('/logout') }}">Logout</a></li>
 								@endif
 								@if(!Auth::check())
 								
 								<!-- <li><a href="/salon-hewan/public/login"><i class="fa fa-lock"></i> Login</a></li> -->
-								<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a href="{{ url('/login') }}"><i class="fa fa-lock"></i> Login</a></li>
 								@endif
 							</ul>
 						</div>
@@ -110,8 +110,8 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<!-- <li><a href="/salon-hewan/public/" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
 								<li><a href="/salon-hewan/public/contact" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li> -->
-								<li><a href="/" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
-								<li><a href="/contact" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li>
+								<li><a href="{{ url('/') }}" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
+								<li><a href="{{ url('/contact') }}" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li>
 							</ul>
 						</div>
 					</div>

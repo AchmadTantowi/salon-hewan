@@ -32,7 +32,7 @@
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
 				  <!-- <li><a href="/salon-hewan/public/">Home</a></li> -->
-				  <li><a href="/">Home</a></li>
+				  <li><a href="{{ url('/') }}">Home</a></li>
 				  <li class="active">Shopping Cart</li>
 				</ol>
 			</div>
@@ -59,7 +59,7 @@
 							</td>
 							<td>
 								<!-- <a href="/salon-hewan/public/cart-remove/{{$row->rowId}}">Delete</a> -->
-								<a href="/cart-remove/{{$row->rowId}}">Delete</a>
+								<a href="{{ url('/cart-remove/') }}/{{$row->rowId}}">Delete</a>
 							</td>
 						</tr>
 					<?php 
@@ -88,7 +88,7 @@
 			</div>
 			<div class="row">
 				<!-- <form role="form" method="POST" action="/salon-hewan/public/save-order"> -->
-				<form role="form" method="POST" action="/save-order">
+				<form role="form" method="POST" action="{{ url('/save-order') }}">
 				{{ csrf_field() }}
 				<?php foreach(Cart::content() as $row) :?>
 				<input type="hidden" name="user_id[]" value="{{ Auth::user()->id }}">
