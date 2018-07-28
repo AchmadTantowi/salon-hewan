@@ -36,12 +36,12 @@
                     <td>{{ $order->order_id }}</td>
                     <td>{{ $order->user->name }}</td>
                     <td>{{ $order->status }}</td>
-                    <td>Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
+                    <td align="right">Rp. {{ number_format($order->total,0, ',' , '.') }}</td>
                     <td>
-                        <a href="/admin/order/edit/{{ $order->order_id }}">
+                        <a href="{{ url('/admin/order/edit/') }}/{{ $order->order_id }}">
                             View
                         </a> |
-                        <a href="/admin/order/complete/{{ $order->order_id }}">
+                        <a href="{{ url('/admin/order/complete/') }}/{{ $order->order_id }}">
                           <small class="label bg-blue">Complete ?</small> 
                         </a>
                     </td>

@@ -37,7 +37,7 @@
                 <td>{{ $confirm->user->name }}</td>
                 <td>{{ $confirm->bank_account }}</td>
                 <td>{{ $confirm->account_number }}</td>
-                <td>Rp. {{ number_format($confirm->amount,0, ',' , '.') }}</td>
+                <td align="right">Rp. {{ number_format($confirm->amount,0, ',' , '.') }}</td>
                 <td>
                     <img src="data:image/png;base64, {{ $confirm->photo }}" width="100px" height="100px" alt="" />
                 </td>
