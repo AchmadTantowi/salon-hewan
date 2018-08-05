@@ -70,6 +70,7 @@ Route::prefix('admin')->group(function () {
     // CONFIRM PAYMENT
     Route::get('/confirm', 'Admin\ConfirmController@index');
     Route::get('/confirm/verified/{order_id}', 'Admin\ConfirmController@verifiedPayment');
+    Route::get('/confirm/view/{id}', 'Admin\ConfirmController@view');
 
     // USER
     Route::get('/user', 'Admin\UserController@index');
@@ -88,6 +89,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/work-order/add', 'Admin\WorkOrderController@add');
     Route::get('/work-order/print/{id}', 'Admin\WorkOrderController@print');
     Route::post('/work-order/save-workorder', 'Admin\WorkOrderController@saveWorkOrder');
+    Route::get('/work-order/edit/{id}', 'Admin\WorkOrderController@edit');
+    Route::post('/work-order/update-workorder/{id}', 'Admin\WorkOrderController@update');
     Route::post('select-customer', ['as'=>'select-customer', 'uses'=>'Admin\WorkOrderController@selectCustomerAjax']);
 });
 

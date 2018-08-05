@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\WorkOrder;
 use App\User;
 use App\Order;
+use App\OrderDetail;
 use DB;
 use Auth;
 
@@ -20,11 +21,12 @@ class WorkOrderController extends Controller
 
     public function index()
     {
-        $workOrders = WorkOrder::get();
-        // $workOrders = DB::table('work_orders as wo')
-        //     ->leftJoin('users as u', 'wo.instruction_to', '=', 'u.id')
-        //     ->select('*')
-        //     ->get();
+        // $workOrders = WorkOrder::get();
+        $workOrders = DB::table('work_orders')
+        ->leftJoin('orders', 'orders.order_id', '=', 'work_orders.order_id')
+        ->leftJoin('users', 'users.id', '=', 'work_orders.instruction_to')
+        ->select('work_orders.id','work_orders.wo_number', 'work_orders.notes', 'users.name', 'work_orders.order_id', 'orders.status')
+        ->get();
         // dd($workOrders);
         return view('admin.work_order.index', compact('workOrders'));
     }
@@ -92,17 +94,30 @@ class WorkOrderController extends Controller
     }
 
     public function print($id){
-        // dd($id);
-        // $workOrders = DB::table('work_orders as wo')
-        //     ->leftJoin('users as u', 'wo.instruction_to', '=', 'u.id')
-        //     ->select('*')
-        //     ->where('wo.id','=',$id)
-        //     ->first();
-            ;
         $workOrders = WorkOrder::where('id','=',$id)->first();
-        // dd($workOrders);
-        return view('admin.work_order.print', compact('workOrders'));
+        $order = Order::where('order_id', $workOrders->order_id)->first();
+        $orderDetails = OrderDetail::where('order_id', $workOrders->order_id)->get();
+        // dd($orderDetails);
+        return view('admin.work_order.print', compact('workOrders','order','orderDetails'));
     }
 
+    public function edit($id){
+        $froms = User::where('position', 'Pemilik')->get();
+        $tos = User::where('position', 'Staff Grooming')->get();
+        $orders = Order::where('status','!=', 'Finish')->get();
+        $work_order = WorkOrder::where('id', $id)->first();
+        return view('admin.work_order.edit', compact('work_order','froms','tos','orders'));
+    }
+
+    public function update($id, Request $request){
+     
+        $wo = WorkOrder::find($id);
+        $wo->instruction_to = $request->get('instruction_to');
+        $wo->notes = $request->get('notes');
+      
+        $wo->save();
+        alert()->success('Updated','Successfully');
+        return redirect('/admin/work-order');
+    }
 
 }

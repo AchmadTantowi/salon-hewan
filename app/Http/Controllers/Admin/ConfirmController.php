@@ -8,6 +8,7 @@ use App\ConfirmPayment;
 use App\Order;
 use App\User;
 use Mail;
+use DB;
 
 class ConfirmController extends Controller
 {
@@ -19,7 +20,12 @@ class ConfirmController extends Controller
 
     public function index()
     {
-        $confirms = ConfirmPayment::get();
+        // $confirms = ConfirmPayment::get();
+        $confirms = DB::table('confirm_payments')
+        ->leftJoin('orders', 'orders.order_id', '=', 'confirm_payments.order_id')
+        ->leftJoin('users', 'users.id', '=', 'confirm_payments.user_id')
+        ->select('users.name', 'confirm_payments.bank_account', 'confirm_payments.account_number', 'confirm_payments.amount','confirm_payments.photo', 'confirm_payments.order_id', 'orders.status')
+        ->get();
         return view('admin.confirm.index', compact('confirms'));
     }
 
@@ -39,6 +45,11 @@ class ConfirmController extends Controller
             alert()->success('Success','Confirm');
             return redirect('/admin/confirm');
         }
+    }
+
+    public function view($order_id){
+        $confirm = ConfirmPayment::where('order_id', $order_id)->first();
+        return view('admin.confirm.view', compact('confirm'));
     }
 
 }

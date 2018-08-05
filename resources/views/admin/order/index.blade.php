@@ -40,10 +40,12 @@
                     <td>
                         <a href="/admin/order/edit/{{ $order->order_id }}">
                             View
-                        </a> |
-                        <a href="/admin/order/complete/{{ $order->order_id }}">
+                        </a> 
+                        @if($order->status != 'Finish')
+                        | <a href="/admin/order/complete/{{ $order->order_id }}">
                           <small class="label bg-blue">Complete ?</small> 
                         </a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

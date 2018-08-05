@@ -25,6 +25,7 @@
                   <th>Bank Account</th>
                   <th>Account Number</th>
                   <th>Amount</th>
+                  <th>Status</th>
                   <th>Photo</th>
                   <th>Action</th>
                 </tr>
@@ -34,18 +35,24 @@
                 @foreach($confirms as $confirm)
                 <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $confirm->user->name }}</td>
+                <td>{{ $confirm->name }}</td>
                 <td>{{ $confirm->bank_account }}</td>
                 <td>{{ $confirm->account_number }}</td>
                 <td>Rp. {{ number_format($confirm->amount,0, ',' , '.') }}</td>
+                <td>{{ $confirm->status }}</td>
                 <td>
                     <img src="data:image/png;base64, {{ $confirm->photo }}" width="100px" height="100px" alt="" />
                 </td>
                 <td>
+                    <a href="/admin/confirm/view/{{ $confirm->order_id }}">
+                      View
+                    </a> 
+                    @if($confirm->status == 'Waiting Verified Payment')
+                    | 
                     <a href="/admin/confirm/verified/{{ $confirm->order_id }}">
                       <small class="label bg-blue">Proccess Confirm</small>
                     </a>
-                    
+                    @endif
                 </td>
                 </tr>
                 @endforeach

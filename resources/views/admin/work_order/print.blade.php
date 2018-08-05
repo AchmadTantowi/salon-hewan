@@ -1,5 +1,29 @@
 <html>
     <head></head>
+    <style>
+        #parts {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 60%;
+        }
+    
+        #parts td, #parts th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+    
+        #parts tr:nth-child(even){background-color: #f2f2f2;}
+    
+        #parts tr:hover {background-color: #ddd;}
+    
+        #parts th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #FE980F;
+            color: white;
+        }
+    </style>
     <body>
         <div width="50%">
             <div align="center">
@@ -24,6 +48,34 @@
                     <td>:</td>
                     <td>{{ $workOrders->order_id }}</td>
                 </tr>
+                <tr>
+                    <td>Customer</td>
+                    <td>:</td>
+                    <td>{{ $order->user->name }}</td>
+                </tr>
+                    <tr>
+                    <td>Address</td>
+                    <td>:</td>
+                    <td>{{ $order->user->address }}</td>
+                </tr>
+            </table>
+            <h3 align="center"><b><u>List Order</u></b></h3>
+            <table id="parts" align="center">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Product</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @php($no = 1)
+                @foreach($orderDetails as $orderDetail)
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $orderDetail->product->name }}</td>
+                </tr>
+                @endforeach
+                </tbody>
             </table>
             <hr>
             <table style="margin-left:20%;margin-right:20%;">
