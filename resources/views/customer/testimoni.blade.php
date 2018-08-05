@@ -19,7 +19,7 @@
 	    			<div class="contact-form">
 	    				<h2 class="title text-center">Testimoni</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
-				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="/sendTestimoni">
+					<form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="{{ url('/sendTestimoni') }}">
 						{{ csrf_field() }}
 							<div class="form-group col-md-12">
 								<select class="form-control" name="order_id">

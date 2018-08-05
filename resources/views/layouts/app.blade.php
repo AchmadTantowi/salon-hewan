@@ -25,7 +25,48 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
-
+<style>
+	.dropbtn {
+		/* background-color: #4CAF50; */
+		color: grey;
+		padding: 10px;
+		font-size: 14px;
+		border: none;
+		cursor: pointer;
+	}
+	
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		right: 0;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+	}
+	
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+	
+	.dropdown-content a:hover {background-color: #FE980F;}
+	
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+	
+	.dropdown:hover .dropbtn {
+		/* background-color: #FE980F; */
+	}
+</style>
 <body>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
@@ -56,8 +97,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<!-- <a href="/salon-hewan/public/"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a> -->
-							<a href="{{ url('/public') }}"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
+							<a href="{{ url('/') }}"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -70,11 +110,13 @@
 									<li><a href="{{ url('/unverified') }}">Payment Confirmation</a></li>
 									<li><a href="{{ url('/unverified') }}">Testimoni</a></li>
 									@else
-									<!-- <li><a href="/salon-hewan/public/order">Order</a></li>
-									<li><a href="/salon-hewan/public/cart">Cart</a></li>
-									<li><a href="/salon-hewan/public/payment-confirmation">Payment Confirmation</a></li>
-									<li><a href="/salon-hewan/public/testimoni">Testimoni</a></li>-->
-								
+									<div class="dropdown" style="float:left;">
+										<button class="dropbtn">{{ Auth::user()->name }} <span class="caret"></span></button>
+										<div class="dropdown-content">
+											<a href="{{ url('/edit-profile') }}">Edit Profile</a>
+											<a href="{{ url('change-password') }}">Change Password</a>
+										</div>	
+									</div>
 									<li><a href="{{ url('/order') }}">Order</a></li>
 									<li><a href="{{ url('/cart') }}">Cart</a></li>
 									<li><a href="{{ url('/payment-confirmation') }}">Payment Confirmation</a></li>
@@ -83,9 +125,7 @@
 									<li><a href="{{ url('/logout') }}">Logout</a></li>
 								@endif
 								@if(!Auth::check())
-								
-								<!-- <li><a href="/salon-hewan/public/login"><i class="fa fa-lock"></i> Login</a></li> -->
-								<li><a href="{{ url('/login') }}"><i class="fa fa-lock"></i> Login</a></li>
+									<li><a href="{{ url('/login') }}"><i class="fa fa-lock"></i> Login</a></li>
 								@endif
 							</ul>
 						</div>
@@ -108,8 +148,6 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<!-- <li><a href="/salon-hewan/public/" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
-								<li><a href="/salon-hewan/public/contact" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li> -->
 								<li><a href="{{ url('/') }}" {{ (Request::is('/') ? 'class=active' : '') }}>Home</a></li>
 								<li><a href="{{ url('/contact') }}" {{ (Request::is('contact') ? 'class=active' : '') }}>Contact</a></li>
 							</ul>

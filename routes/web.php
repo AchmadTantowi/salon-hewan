@@ -39,6 +39,12 @@ Route::get('/payment-confirmation', 'PaymentConfirmController@paymentConfirmatio
 Route::post('/sendPaymentConfirmation', 'PaymentConfirmController@sendPaymentConfirmation');
 Route::post('select-amount', ['as'=>'select-amount', 'uses'=>'PaymentConfirmController@selectAmountAjax']);
 
+// PROFILE
+Route::get('/edit-profile', 'ProfileController@editProfile');
+Route::post('/update-profile/{id}', 'ProfileController@updateProfile');
+Route::get('/change-password', 'ProfileController@changePassword');
+Route::post('/update-password', 'ProfileController@updatePassword');
+
 // ORDER
 Route::get('/order', 'OrderFrontController@index');
 Route::get('/order/detail/{orderId}', 'OrderFrontController@orderDetail');

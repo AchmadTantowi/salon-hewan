@@ -5,28 +5,38 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class UserController extends Controller
 {
     
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $users = User::where("role", "admin")->get();
         return view('admin.user.index', compact('users'));
     }
 
     public function add()
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         return view('admin.user.add');
     }
 
     public function saveUser(Request $request)
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -52,11 +62,17 @@ class UserController extends Controller
     }
 
     public function edit($id){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $user = User::where('id', $id)->first();
         return view('admin.user.edit', compact('user'));
     }
 
     public function update($id, Request $request){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $pass = $request->get('password');
         if(!is_null($pass)){
             $this->validate($request, [
@@ -94,6 +110,9 @@ class UserController extends Controller
     }
     
     public function delete($id){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $user = User::find($id);
         $user->delete();
         if($user){

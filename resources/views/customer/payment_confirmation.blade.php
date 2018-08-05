@@ -34,10 +34,10 @@
 								<input type="number" name="rupiah" id="rupiah" class="form-control" required="required" readonly>							
 							</div>
 				            <div class="form-group col-md-12">
-				                <input type="text" name="bank_account" class="form-control" required="required" placeholder="Bank Account">
+				                <input type="text" name="bank_account" style="text-transform: uppercase" class="form-control" required="required" placeholder="Bank Account">
 				            </div>
 				            <div class="form-group col-md-12">
-				                <input type="text" name="account_number" class="form-control" required="required" placeholder="Account Number">
+				                <input type="number" name="account_number" class="form-control" required="required" placeholder="Account Number">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="">Proof of payment</label>

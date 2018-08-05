@@ -17,17 +17,26 @@ class ProductController extends Controller
 
     public function index()
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $products = Product::get();
         return view('admin.product.index', compact('products'));
     }
 
     public function add()
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         return view('admin.product.add');
     }
 
     public function saveProduct(Request $request)
     {
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $this->validate($request, [
             'name' => 'required',
             'price' => 'required',
@@ -51,11 +60,17 @@ class ProductController extends Controller
     }
 
     public function edit($id){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $product = Product::where('id', $id)->first();
         return view('admin.product.edit', compact('product'));
     }
 
     public function update($id, Request $request){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $this->validate($request, [
             'name' => 'required',
             'price' => 'required',
@@ -80,6 +95,9 @@ class ProductController extends Controller
     }
 
     public function delete($id){
+        if(Auth::user()->position != "Pemilik"){
+            abort(404);
+        }
         $product = Product::find($id);
         $product->delete();
         if($product){
