@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-            <a href="/salon-hewan/public/admin/product/add">
+            <a href="{{ url('/admin/product/add') }}">
               <button type="button" class="btn btn-info">Add</button>
             </a>
             </div>
@@ -37,10 +37,10 @@
                 <td>{{ $product->name }}</td>
                 <td align="right">Rp. {{ number_format($product->price,0, ',' , '.') }}</td>
                 <td>
-                    <a href="/admin/product/edit/{{ $product->id }}">
+                    <a href="{{ url('/admin/product/edit/') }}/{{ $product->id }}">
                     Edit
                     </a> |
-                    <a href="/admin/product/delete/{{ $product->id }}">
+                    <a href="{{ url('/admin/product/delete/') }}/{{ $product->id }}">
                     Delete
                 </td>
                 </tr>

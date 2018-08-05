@@ -9,7 +9,7 @@
 	    			<div class="contact-form">
 	    				<h2 class="title text-center">Get In Touch</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
-				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="/sendContact">
+				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="{{ url('/sendContact') }}">
 						{{ csrf_field() }}
 				            <div class="form-group col-md-6">
 				                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
@@ -33,14 +33,19 @@
 	    			<div class="contact-info">
 	    				<h2 class="title text-center">Contact Info</h2>
 	    				<address>
-	    					<p>E-Shopper Inc.</p>
-							<p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-							<p>Newyork USA</p>
-							<p>Mobile: +2346 17 38 93</p>
-							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@e-shopper.com</p>
+	    					<p>Happy-Pets</p>
+							<p>Jakarta dan Sekitarnya</p>
+							<p>Telp :</p>
+							<ol>
+								<li>0823 - 111 - 23123</li>
+								<li>0857 - 991 - 23123</li>
+								<li>0878 - 898 - 89123</li>
+							</ol>
+							<p>Bali</p>
+							<p>Telp : 0857 - 391 - 88477</p>
+							<p>Jam Operasional:08.00-18.00(Senin - Sabtu)</p>
 	    				</address>
-	    				<div class="social-networks">
+	    				<!-- <div class="social-networks">
 	    					<h2 class="title text-center">Social Networking</h2>
 							<ul>
 								<li>
@@ -56,7 +61,7 @@
 									<a href="#"><i class="fa fa-youtube"></i></a>
 								</li>
 							</ul>
-	    				</div>
+	    				</div> -->
 	    			</div>
     			</div>    			
 	    	</div>  

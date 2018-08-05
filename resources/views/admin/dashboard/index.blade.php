@@ -13,70 +13,40 @@
       </ol>
     </section>
 
-    <!-- Main content -->
+     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Happy Pets</h3>
+          </div>
+          <div class="panel-body">
+            <div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Jasa Kami</h4>
+                </div>
+                <div class="panel-body">
+                  <h5>Happy Pets Mobil Grooming adalah salon anjing dan kucing pertama di Indonesia yang menyediakan jasa grooming & hair spa di rumah pelanggan. Service kami sangat diminati oleh mereka yang menginginkan privasi & kenyamanan salon exclusive tanpa harus meninggalkan rumah. Kualitas kerja dan service kami terjamin dengan harga terjangkau.</h5>
+                  <h5>
+                    Kami Menawarkan Jasa : 
+                    <ol>
+                      <li>Bathing Dog and Cat (Memandikan Anjing dan Kucing)</li>
+                      <li>Skin & Coat Conditioning (Perawatan Kulit dan Bulu)</li>
+                      <li>Hair Spa and Message</li>
+                      <li>Cukur Model</li>
+                      <li>Blow Dry</li>
+                      <li>Gunting Kuku</li>
+                      <li>Membersihkan Kuping</li>
+                      <li>Basmi Kutu</li>
+                    </ol>
+                  </h5>
+                </div>
+              </div>
+            </div>       
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
       </div>
       <!-- /.row -->
 

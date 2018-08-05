@@ -69,7 +69,7 @@
                     
                     <td>{{ $order_detail->product->name }}</td>
                     <td>{{ $order_detail->qty }}</td>
-                    <td>Rp. {{ number_format($order_detail->subtotal,0, ',' , '.') }}</td>
+                    <td align="right">Rp. {{ number_format($order_detail->subtotal,0, ',' , '.') }}</td>
                     </td>
                 </tr>
                 @endforeach

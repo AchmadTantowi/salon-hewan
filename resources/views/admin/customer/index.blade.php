@@ -22,33 +22,30 @@
                 <tr>
                   <th>No</th>
                   <th>Name</th>
+                  <th>Address</th>
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Status</th>
-                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @php($no = 1)
                 @foreach($customers as $customer)
                 <tr>
-                <td>{{ $no++ }}</td>
-                <td>{{ $customer->name }}</td>
-                <td>{{ $customer->email }}</td>
-                <td>{{ $customer->phone }}</td>
-                <td>
-                    @if($customer->verified)
-                        <small class="label bg-green">Verified</small>
-                    @else
-                        {{-- <a href="/salon-hewan/public/admin/customer/verified/{{ $customer->id }}"> --}}
-                        <a href="/admin/customer/verified/{{ $customer->id }}">
-                            <small class="label bg-red">Unverified</small>
-                        </a>
-                    @endif
-                </td>
-                <td>
-
-                </td>
+                  <td>{{ $no++ }}</td>
+                  <td>{{ $customer->name }}</td>
+                  <td>{{ $customer->address }}</td>
+                  <td>{{ $customer->email }}</td>
+                  <td>{{ $customer->phone }}</td>
+                  <td>
+                      @if($customer->verified)
+                          <small class="label bg-green">Verified</small>
+                      @else
+                          <a href="{{ url('/admin/customer/verified/') }}/{{ $customer->id }}">
+                              <small class="label bg-red">Unverified</small>
+                          </a>
+                      @endif
+                  </td>
                 </tr>
                 @endforeach
                 </tbody>

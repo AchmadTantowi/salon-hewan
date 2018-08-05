@@ -10,12 +10,12 @@
 						<ol class="carousel-indicators">
 							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
 							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>Happy</span>-Pets</h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<p>Happy Pets Mobil Grooming adalah salon anjing dan kucing pertama di Indonesia yang menyediakan jasa grooming & hair spa di rumah pelanggan. Service kami sangat diminati oleh mereka yang menginginkan privasi & kenyamanan salon exclusive tanpa harus meninggalkan rumah. Kualitas kerja dan service kami terjamin dengan harga terjangkau.</p><br>
 								</div>
 								<div class="col-sm-6">
 									<img src="{{ asset('assets/frontend/images/home/pets-1.png') }}" class="girl img-responsive" alt="" />
@@ -23,8 +23,43 @@
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>Happy</span>-Pets</h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+			                  		<p>
+				                    	Kami Menawarkan Jasa : 
+					                    <ol>
+					                      <li>Bathing Dog and Cat (Memandikan Anjing dan Kucing)</li>
+					                      <li>Skin & Coat Conditioning (Perawatan Kulit dan Bulu)</li>
+					                      <li>Hair Spa and Message</li>
+					                      <li>Cukur Model</li>
+					                      <li>Blow Dry</li>
+					                      <li>Gunting Kuku</li>
+					                      <li>Membersihkan Kuping</li>
+					                      <li>Basmi Kutu</li>
+					                    </ol>
+				                  	</p>
+								</div>
+								<div class="col-sm-6">
+									<img src="{{ asset('assets/frontend/images/home/pets-1.png') }}" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6">
+			                  		<p>
+				                    	Keuntungan Menggunakan Jasa Kami: 
+					                    <ol>
+					                      	<li>
+					                      		Anjing atau Kucing anda akan merasa lebih nyaman & tidak stress apabila dilakukan di rumah
+					                      	</li>
+				                     	 	<li>
+					                      		Jauh dari resiko tertular penyakit dari anjing dan kucing lain apabila perawatan dilakukan di rumah 
+					                      	</li>
+					                      	<li>
+					                      		Anda dapat melihat dan mengawasi cara kerja kami, sehingga anda tidak perlu merasa khawatir 
+					                      	</li>
+					                      	<li>
+					                      		Anda tidak perlu ber macet - macetan mengantarkan hewan peliharaan anda ke salon. Cukup dengan menelpon dan membuat janji, kami akan datang sesuai schedule yang telah ditentukan
+				                  			</li>
+					                    </ol>
+				                  	</p>
 								</div>
 								<div class="col-sm-6">
 									<img src="{{ asset('assets/frontend/images/home/pets-1.png') }}" class="girl img-responsive" alt="" />
@@ -59,7 +94,7 @@
 											<h2>Rp. {{ number_format($product->price,0, ',' , '.') }}</h2>
 											<p>{{ $product->name }}</p>
 											<!-- <form action="/salon-hewan/public/addToCart" method="POST"> -->
-											<form action="/addToCart" method="POST">
+											<form action="{{ url('/addToCart') }}" method="POST">
 												{!! csrf_field() !!}
 												<input type="hidden" name="id" value="{{ $product->id }}">
 												<input type="hidden" name="name" value="{{ $product->name }}">
@@ -76,7 +111,7 @@
 												<h2>Rp. {{ number_format($product->price,0, ',' , '.') }}</h2>
 												<p>{{ $product->name }}</p>
 												<!-- <form action="/salon-hewan/public/addToCart" method="POST"> -->
-												<form action="/addToCart" method="POST">
+												<form action="{{ url('/addToCart') }}" method="POST">
 													{!! csrf_field() !!}
 													<input type="hidden" name="id" value="{{ $product->id }}">
 													<input type="hidden" name="name" value="{{ $product->name }}">

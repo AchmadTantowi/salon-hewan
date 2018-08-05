@@ -18,8 +18,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            {{-- <form role="form" method="POST" action="/salon-hewan/public/admin/work-order/save-workorder"> --}}
-              <form role="form" method="POST" action="/admin/work-order/save-workorder">
+              <form role="form" method="POST" action="{{ url('/admin/work-order/save-workorder') }}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">

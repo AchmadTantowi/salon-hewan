@@ -24,7 +24,6 @@
                   <th>Customer</th>
                   <th>Title</th>
                   <th>Description</th>
-                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,9 +34,6 @@
                 <td>{{ $testimoni->user->name }}</td>
                 <td>{{ $testimoni->title }}</td>
                 <td>{{ $testimoni->description }}</td>
-                <td>
-
-                </td>
                 </tr>
                 @endforeach
                 </tbody>

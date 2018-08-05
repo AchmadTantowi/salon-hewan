@@ -14,7 +14,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="/salon-hewan/public/admin/user/add">
+              <a href="{{ url('/admin/user/add') }}">
                 <button type="button" class="btn btn-info">Add</button>
               </a>
             </div>
@@ -41,10 +41,10 @@
                 <td>{{ $user->phone }}</td>
                 <td>{{ $user->position }}</td>
                 <td>
-                    <a href="/admin/user/edit/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/edit/') }}/{{ $user->id }}">
                     Edit
                     </a> |
-                    <a href="/admin/user/delete/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/delete/') }}/{{ $user->id }}">
                     Delete
                 </td>
                 </tr>
