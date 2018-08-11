@@ -8,6 +8,7 @@ use DB;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
+use App\BankAccount;
 
 class CartController extends Controller
 {
@@ -28,7 +29,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('customer.cart');
+        $banks = BankAccount::get();
+        return view('customer.cart', compact('banks'));
     }
 
     public function cartRemove($rowId)
@@ -73,6 +75,10 @@ class CartController extends Controller
                 $orderDetail->subTotal = $getProduct->price;
                 $orderDetail->save();
             }
+
+            DB::table('users')
+            ->where('id', $request->get('user_id')[0])
+            ->update(['address' => $request->get('alamat')]);
 
             DB::commit();
             Cart::destroy();

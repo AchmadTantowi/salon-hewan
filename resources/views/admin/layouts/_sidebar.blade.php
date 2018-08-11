@@ -65,6 +65,12 @@
               <span class="pull-right-container"></span>
             </a>
           </li>
+          <li class="{{ Request::is('admin/bank') ? 'active' : '' }}">
+            <a href="{{ url('/admin/bank') }}">
+            <i class="fa fa-file-word-o"></i> <span>Bank Account</span>
+              <span class="pull-right-container"></span>
+            </a>
+          </li>
           <li class="{{ Request::is('admin/user') ? 'active' : '' }}">
             <a href="{{ url('/admin/user') }}">
             <i class="fa fa-user"></i> <span>User</span>

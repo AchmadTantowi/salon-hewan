@@ -53,6 +53,14 @@ Route::get('/order/detail/{orderId}', 'OrderFrontController@orderDetail');
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', 'Admin\DashboardController@index');
 
+    // BANK
+    Route::get('/bank', 'Admin\BankAccountController@index');
+    Route::get('/bank/add', 'Admin\BankAccountController@add');
+    Route::post('/bank/save', 'Admin\BankAccountController@save');
+    Route::get('/bank/edit/{id}', 'Admin\BankAccountController@edit');
+    Route::post('/bank/update/{id}', 'Admin\BankAccountController@update');
+    Route::get('/bank/delete/{id}', 'Admin\BankAccountController@delete');
+    
     // PRODUCT
     Route::get('/product', 'Admin\ProductController@index');
     Route::get('/product/add', 'Admin\ProductController@add');
