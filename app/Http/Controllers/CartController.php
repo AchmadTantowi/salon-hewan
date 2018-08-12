@@ -54,6 +54,7 @@ class CartController extends Controller
 
     public function saveOrder(Request $request){
         $productId = $request->get('product_id');
+        $isEdit = $request->get('isEdit');
         $replace = str_replace(",","",$request->get('total')[0]);
         $tot_price = substr($replace,0,-3);
         
@@ -76,20 +77,23 @@ class CartController extends Controller
                 $orderDetail->save();
             }
 
-            DB::table('users')
-            ->where('id', $request->get('user_id')[0])
-            ->update(['address' => $request->get('alamat')]);
+            if ($isEdit){
+                DB::table('users')
+                ->where('id', $request->get('user_id')[0])
+                ->update(['address' => $request->get('alamat')]);
+            }
 
-            DB::commit();
-            Cart::destroy();
-            alert()->success('Success','Thanks for order');
-            return redirect('/cart');
-        }
-        catch(QueryException $e){
-            DB::rollback();
-            alert()->error('Failed','Not Saved');
-            return redirect('/cart');
-        }
+
+         DB::commit();
+         Cart::destroy();
+         alert()->success('Success','Thanks for order');
+         return redirect('/cart');
+     }
+     catch(QueryException $e){
+        DB::rollback();
+        alert()->error('Failed','Not Saved');
+        return redirect('/cart');
     }
+}
 
 }
