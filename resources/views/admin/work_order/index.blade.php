@@ -46,7 +46,7 @@
                 <td>{{ $workOrder->notes }}</td>
                 <td>
                     @if($workOrder->status != 'Finish')
-                    <a href="/admin/work-order/edit/{{ $workOrder->id }}">
+                    <a href="{{ url('/admin/work-order/edit') }}/{{ $workOrder->id }}">
                       Edit
                     </a> 
                     |
