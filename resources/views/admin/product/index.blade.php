@@ -39,9 +39,9 @@
                 <td>
                     <a href="{{ url('/admin/product/edit/') }}/{{ $product->id }}">
                     Edit
-                    </a> |
+                    </a> <!-- |
                     <a href="{{ url('/admin/product/delete/') }}/{{ $product->id }}">
-                    Delete
+                    Delete -->
                 </td>
                 </tr>
                 @endforeach

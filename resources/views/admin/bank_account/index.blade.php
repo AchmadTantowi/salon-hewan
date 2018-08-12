@@ -41,9 +41,9 @@
                 <td>
                     <a href="{{ url('/admin/bank/edit/') }}/{{ $bankAccount->id }}">
                     Edit
-                    </a> |
+                    </a> <!-- |
                     <a href="{{ url('/admin/bank/delete/') }}/{{ $bankAccount->id }}">
-                    Delete
+                    Delete -->
                 </td>
                 </tr>
                 @endforeach
