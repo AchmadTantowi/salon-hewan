@@ -96,7 +96,7 @@
 					<div class="col-sm-12">
 						<label for="">Alamat Tujuan</label>
 						<input type="text" class="form-control" id="address" name="alamat" value="{{ Auth::user()->address }}" disabled>
-						<input type="checkbox" id="isEdit" /> Edit
+						<input type="checkbox" id="isEdit" name="isEdit"/> Edit
 						<br><br>
 						<div class="total_area">
 							<ul>
