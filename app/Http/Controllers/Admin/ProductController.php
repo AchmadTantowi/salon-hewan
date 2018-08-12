@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use Input;
 use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductController extends Controller
             abort(404);
         }
         $products = Product::get();
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index', compact('products'));  
     }
 
     public function add()
@@ -52,7 +53,7 @@ class ProductController extends Controller
             'description' => $request->get('description'),
             'price' => $request->get('price'),
             'image' => $base64
-          ]);
+        ]);
         if($product){
             alert()->success('Success','Saved');
             return redirect('/admin/product');
@@ -88,7 +89,7 @@ class ProductController extends Controller
             $base64 = base64_encode($imagedata);
             $product->image = $base64;
         }
-      
+
         $product->save();
         alert()->success('Updated','Successfully');
         return redirect('/admin/product');
