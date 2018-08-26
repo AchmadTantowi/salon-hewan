@@ -27,7 +27,8 @@
     <body>
         <div width="50%">
             <div align="center">
-                <h1>Happy Pets</h1>
+                <img src="{{ asset('assets/logo-happypet.png') }}" width="100px" height="auto" alt="" />
+                {{-- <h1>Happy Pets</h1> --}}
                 <h3>Alam Sutera</h3>
                 <hr>
             </div>
@@ -56,7 +57,13 @@
                     <tr>
                     <td>Address</td>
                     <td>:</td>
-                    <td>{{ $order->user->address }}</td>
+                    <td>{{ $order->alamat_order }}</td>
+                </tr>
+                </tr>
+                    <tr>
+                    <td>Notes</td>
+                    <td>:</td>
+                    <td>{{ $order->notes }}</td>
                 </tr>
             </table>
             <h3 align="center"><b><u>List Order</u></b></h3>

@@ -63,7 +63,9 @@ class CartController extends Controller
             $order->order_id = $this->getNextOrderNumber();
             $order->user_id = $request->get('user_id')[0];
             $order->status = "Waiting Payment Confirmation";
+            $order->alamat_order = $request->get('alamat');
             $order->total = $tot_price;
+            $order->notes = $request->get('notes');
             $order->save();
 
             for ($i=0; $i < count($productId); $i++) {
@@ -76,14 +78,16 @@ class CartController extends Controller
                 $orderDetail->save();
             }
 
-            DB::table('users')
-            ->where('id', $request->get('user_id')[0])
-            ->update(['address' => $request->get('alamat')]);
-
+            // if(!is_null($request->get('alamat'))){
+            //     DB::table('users')
+            //     ->where('id', $request->get('user_id')[0])
+            //     ->update(['address' => $request->get('alamat')]);
+            // }
+            
             DB::commit();
             Cart::destroy();
             alert()->success('Success','Thanks for order');
-            return redirect('/cart');
+            return redirect('/payment-confirmation');
         }
         catch(QueryException $e){
             DB::rollback();

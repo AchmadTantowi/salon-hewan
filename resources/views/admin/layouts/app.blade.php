@@ -46,7 +46,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>ET</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Happy</b>Pet</span>
+      <span class="logo-lg"><img src="{{ asset('assets/logo-happypet.png') }}" width="55px" height="auto" alt="" /></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

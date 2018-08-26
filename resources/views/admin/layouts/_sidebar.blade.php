@@ -77,6 +77,17 @@
               <span class="pull-right-container"></span>
             </a>
           </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-folder"></i> <span>Laporan</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{ Request::is('admin/laporan-order') ? 'active' : '' }}"><a href="{{ url('/admin/laporan-order') }}"><i class="fa fa-circle-o"></i> Order</a></li>
+            </ul>
+          </li>
         @endif
 
         {{-- ADMIN --}}
@@ -123,6 +134,39 @@
               <span class="pull-right-container"></span>
             </a>
           </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-folder"></i> <span>Laporan</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Order
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/laporan-order-bydate') ? 'active' : '' }}"><a href="{{ url('/admin/laporan-order-bydate') }}"><i class="fa fa-circle-o"></i> By Date</a></li>
+                    <li class="{{ Request::is('admin/laporan-order-bycustomer') ? 'active' : '' }}"><a href="{{ url('/admin/laporan-order-bycustomer') }}"><i class="fa fa-circle-o"></i> By Customer</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Confirm Payment
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/laporan-confirm-bydate') ? 'active' : '' }}"><a href="{{ url('/admin/laporan-confirm-bydate') }}"><i class="fa fa-circle-o"></i> By Date</a></li>
+                    <li class="{{ Request::is('admin/laporan-confirm-bycustomer') ? 'active' : '' }}"><a href="{{ url('/admin/laporan-confirm-bycustomer') }}"><i class="fa fa-circle-o"></i> By Customer</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
         @endif
 
       </ul>

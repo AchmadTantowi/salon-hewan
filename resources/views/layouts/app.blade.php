@@ -97,7 +97,7 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="{{ url('/') }}"><img src="{{ asset('assets/frontend/images/home/logo.png') }}" width="139px" height="39" alt="" /></a>
+							<a href="{{ url('/') }}"><img src="{{ asset('assets/logo-happypet.png') }}" width="100px" height="auto" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">

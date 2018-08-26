@@ -9,6 +9,7 @@ use App\Order;
 use App\User;
 use Mail;
 use DB;
+use Auth;
 
 class ConfirmController extends Controller
 {
@@ -50,6 +51,35 @@ class ConfirmController extends Controller
     public function view($order_id){
         $confirm = ConfirmPayment::where('order_id', $order_id)->first();
         return view('admin.confirm.view', compact('confirm'));
+    }
+
+    public function reject($order_id){
+        $orderID = $order_id;
+        return view('admin.confirm.reject', compact('orderID'));
+    }
+
+    public function save(Request $request)
+    {
+        // if(Auth::user()->position != "Pemilik"){
+        //     abort(404);
+        // }
+        $this->validate($request, [
+            'keterangan' => 'required'
+        ]);
+
+        $order = Order::where('order_id', $request->get('orderid'))->first();
+        $getUser = User::where('id', $order->user_id)->first();
+
+        // Send email
+        $send_data['title'] = "Pembayaran Anda ditolak dengan Nomor Order ".$request->get('orderid');
+        $send_data['keterangan'] = $request->get('keterangan');
+        Mail::send('emails.reject', ['getUser' => $getUser, 'send_data' => $send_data], function($message) use($getUser) {
+            $message->to($getUser->email, $getUser->name)->subject('Reject Confirm Payment');
+        });
+        
+        alert()->success('Success','Sent email');
+        return redirect('/admin/confirm');
+        
     }
 
 }

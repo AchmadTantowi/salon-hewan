@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" style="text-transform: uppercase" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -79,7 +79,7 @@
                             <label for="address" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
-                                <textarea id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus></textarea>
+                                <textarea id="address" type="text" style="text-transform: uppercase" class="form-control" name="address" value="{{ old('address') }}" required autofocus></textarea>
 
                                 @if ($errors->has('address'))
                                     <span class="help-block">

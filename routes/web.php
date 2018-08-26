@@ -82,6 +82,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/testimoni', 'Admin\TestimoniController@index');
 
     // CONFIRM PAYMENT
+    Route::get('/reject/{order_id}', 'Admin\ConfirmController@reject');
+    Route::post('/reject/save', 'Admin\ConfirmController@save');
     Route::get('/confirm', 'Admin\ConfirmController@index');
     Route::get('/confirm/verified/{order_id}', 'Admin\ConfirmController@verifiedPayment');
     Route::get('/confirm/view/{id}', 'Admin\ConfirmController@view');
@@ -106,6 +108,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/work-order/edit/{id}', 'Admin\WorkOrderController@edit');
     Route::post('/work-order/update-workorder/{id}', 'Admin\WorkOrderController@update');
     Route::post('select-customer', ['as'=>'select-customer', 'uses'=>'Admin\WorkOrderController@selectCustomerAjax']);
+
+    //LAPORAN
+    Route::get('/laporan-order-bydate', 'Admin\LaporanController@lapOrderByDate');
+    Route::post('/laporan-order-bydate/print', 'Admin\LaporanController@printByDate');
+
+    Route::get('/laporan-order-bycustomer', 'Admin\LaporanController@lapOrderByCustomer');
+    Route::post('/laporan-order-bycustomer/print', 'Admin\LaporanController@printByCustomer');
+
+    Route::get('/laporan-confirm-bydate', 'Admin\LaporanController@lapConfirmByDate');
+    Route::post('/laporan-confirm-bydate/print', 'Admin\LaporanController@printConfirmByDate');
+
+    Route::get('/laporan-confirm-bycustomer', 'Admin\LaporanController@lapConfirmByCustomer');
+    Route::post('/laporan-confirm-bycustomer/print', 'Admin\LaporanController@printConfirmByCustomer');
 });
 
 Auth::routes();

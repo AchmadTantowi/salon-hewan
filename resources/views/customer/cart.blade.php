@@ -96,7 +96,10 @@
 					<div class="col-sm-12">
 						<label for="">Alamat Tujuan</label>
 						<input type="text" class="form-control" id="address" name="alamat" value="{{ Auth::user()->address }}" disabled>
-						<input type="checkbox" id="isEdit" /> Edit
+						<input type="checkbox" id="isEdit" /> Edit<br><br>
+						<label for="">Notes</label>
+						<textarea name="notes" class="form-control" rows="4" placeholder="Isi waktu dan jam pelaksanaan"></textarea>
+						
 						<br><br>
 						<div class="total_area">
 							<ul>
