@@ -42,7 +42,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/admin/dashboard" class="logo">
+    <a href="{{ url('/admin/dashboard') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>ET</span>
       <!-- logo for regular state and mobile devices -->

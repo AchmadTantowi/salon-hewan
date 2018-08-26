@@ -54,6 +54,7 @@ class CartController extends Controller
 
     public function saveOrder(Request $request){
         $productId = $request->get('product_id');
+        $isEdit = $request->get('isEdit');
         $replace = str_replace(",","",$request->get('total')[0]);
         $tot_price = substr($replace,0,-3);
         
@@ -95,5 +96,6 @@ class CartController extends Controller
             return redirect('/cart');
         }
     }
-
 }
+
+

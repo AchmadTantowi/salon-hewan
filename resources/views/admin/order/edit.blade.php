@@ -30,7 +30,7 @@
                 <tr>
                     <td>Status</td><td>&nbsp;:&nbsp;</td><td> {{ $order->status }}</td>
                 </tr>
-        
+                
                 {{-- <form method="POST" action="/admin/order/update/{{$order->id}}">
                 {{ csrf_field() }}
                 <tr>

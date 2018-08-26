@@ -116,10 +116,12 @@
                 <tr style="height:200px;">
                     <td>Pemberi Tugas</td>
                     <td>Penerima Tugas</td>
+                    <td>Customer</td>
                 </tr>
                 <tr style="padding-top:100px;">
                     <td>{{ $workOrders->from->name }}</td>
                     <td>{{ $workOrders->to->name }}</td>
+                    <td>Nama Customer</td>
                 </tr>
             </table>
         </div>

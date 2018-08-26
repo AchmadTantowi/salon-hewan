@@ -31,7 +31,7 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="/salon-hewan/public/order">Order</a></li>
+				  <li><a href="{{ url('/order') }}">Order</a></li>
 				  <li class="active">Order detail</li>
 				</ol>
 			</div>
