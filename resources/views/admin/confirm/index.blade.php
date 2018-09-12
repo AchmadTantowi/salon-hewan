@@ -52,7 +52,7 @@
                     <a href="{{ url('/admin/confirm/verified') }}/{{ $confirm->order_id }}">
                       <small class="label bg-blue">Proccess Confirm</small>
                     </a> |
-                  <a href="/admin/reject/{{ $confirm->order_id }}">
+                  <a href="{{ url('/admin/reject') }}/{{ $confirm->order_id }}">
                       <small class="label bg-red">Reject</small>
                     </a>
                     @endif
