@@ -18,7 +18,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ url('/admin/work-order/update-workorder') }}/{{$work_order->id}}">
+            <form role="form" method="POST" action="{{ url('/admin/work-order/update-workorder') }}/{{$work_order->work_order_id}}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -33,7 +33,7 @@
                 <label for="exampleInputEmail1">Instruction to</label>
                 <select class="form-control" name="instruction_to">
                     @foreach($tos as $to)
-                        <option value="{{ $to->id }}" {{ $to->id == $work_order->instruction_to ? 'selected':'' }}>{{ $to->name }}</option>
+                        <option value="{{ $to->user_id }}" {{ $to->user_id == $work_order->instruction_to ? 'selected':'' }}>{{ $to->name }}</option>
                     @endforeach
                 </select>
                 </div>

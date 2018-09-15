@@ -28,7 +28,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ url('/admin/user/update/') }}/{{$user->id}}">
+            <form role="form" method="POST" action="{{ url('/admin/user/update/') }}/{{$user->user_id}}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">

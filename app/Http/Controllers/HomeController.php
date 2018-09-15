@@ -9,6 +9,7 @@ use Auth;
 use App\Testimoni;
 use App\Product;
 use App\Contact;
+use DB;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,11 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::get();
-        $testimonis = Testimoni::get();
+        // $testimonis = Testimoni::get();
+        $testimonis = DB::table('testimonis')
+        ->leftJoin('users', 'users.user_id', '=', 'testimonis.user_id')
+        ->select('*')
+        ->get();
         return view('home', compact('products', 'testimonis'));
     }
 

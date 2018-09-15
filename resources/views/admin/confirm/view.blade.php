@@ -22,7 +22,7 @@
                     <td>Order ID</td><td>&nbsp;:&nbsp;</td><td> {{ $confirm->order_id }}</td>
                 </tr>
                 <tr>
-                    <td>Customer</td><td>&nbsp;:&nbsp;</td><td> {{ $confirm->user->name }}</td>
+                    <td>Customer</td><td>&nbsp;:&nbsp;</td><td> {{ $confirm->name }}</td>
                 </tr>
                 <tr>
                     <td>Bank Account</td><td>&nbsp;:&nbsp;</td><td> {{ $confirm->bank_account }}</td>

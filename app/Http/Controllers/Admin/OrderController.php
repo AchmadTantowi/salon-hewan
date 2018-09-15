@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Order;
 use App\OrderDetail;
+use DB;
 
 class OrderController extends Controller
 {
@@ -17,13 +18,24 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = Order::get();
+        // $orders = Order::get();
+        
+        $orders = DB::table('orders')
+        ->leftJoin('users', 'users.user_id', '=', 'orders.user_id')
+        ->select('*')
+        ->get();
+        // dd($orders);
         return view('admin.order.index', compact('orders'));
     }
 
     public function edit($orderId)
     {
-        $order = Order::where('order_id', $orderId)->first();
+        // $order = Order::where('order_id', $orderId)->first();
+        $order = DB::table('orders')
+        ->leftJoin('users', 'users.user_id', '=', 'orders.user_id')
+        ->select('*')
+        ->where('order_id', $orderId)
+        ->first();
         $order_details = OrderDetail::where('order_id', $orderId)->get();
         return view('admin.order.edit', compact('order', 'order_details'));
     }

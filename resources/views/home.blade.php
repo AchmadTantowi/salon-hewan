@@ -113,7 +113,7 @@
 												<!-- <form action="/salon-hewan/public/addToCart" method="POST"> -->
 												<form action="{{ url('/addToCart') }}" method="POST">
 													{!! csrf_field() !!}
-													<input type="hidden" name="id" value="{{ $product->id }}">
+													<input type="hidden" name="id" value="{{ $product->product_id }}">
 													<input type="hidden" name="name" value="{{ $product->name }}">
 													<input type="hidden" name="description" value="{{ $product->description }}">
 													<input type="hidden" name="price" value="{{ $product->price }}">
@@ -143,7 +143,7 @@
 											<img class="media-object" src="{{ asset('assets/frontend/images/blog/man-one.jpg') }}" alt="">
 										</a>
 										<div class="media-body">
-											<h4 class="media-heading">{{ $testimoni->user->name }}</h4>
+											<h4 class="media-heading">{{ $testimoni->name }}</h4>
 											<p>{{ $testimoni->description }}</p>
 										</div>
 										</div><!--Comments-->

@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $primaryKey = 'order_id';
+
     protected $fillable = [
-        'order_id', 'user_id', 'status', 'alamat_order', 'total', 'notes'
+        'user_id', 'status', 'alamat_order', 'total', 'notes'
     ];
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
 }

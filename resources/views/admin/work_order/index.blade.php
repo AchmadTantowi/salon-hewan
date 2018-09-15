@@ -46,12 +46,12 @@
                 <td>{{ $workOrder->notes }}</td>
                 <td>
                     @if($workOrder->status != 'Finish')
-                    <a href="{{ url('/admin/work-order/edit') }}/{{ $workOrder->id }}">
+                    <a href="{{ url('/admin/work-order/edit') }}/{{ $workOrder->work_order_id }}">
                       Edit
                     </a> 
                     |
                     @endif
-                    <a href="{{ url('/admin/work-order/print/') }}/{{$workOrder->id}}" target="_blank">
+                    <a href="{{ url('/admin/work-order/print/') }}/{{$workOrder->work_order_id}}" target="_blank">
                         <i class="fa fa-print"></i> Print 
                     </a>
                 </td>

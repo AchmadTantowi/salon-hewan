@@ -65,7 +65,7 @@ class UserController extends Controller
         if(Auth::user()->position != "Pemilik"){
             abort(404);
         }
-        $user = User::where('id', $id)->first();
+        $user = User::where('user_id', $id)->first();
         return view('admin.user.edit', compact('user'));
     }
 

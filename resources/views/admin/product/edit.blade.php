@@ -31,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/product/update') }}/{{ $product->id }}">
+            <form role="form" method="POST" enctype="multipart/form-data" action="{{ url('/admin/product/update') }}/{{ $product->product_id }}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">

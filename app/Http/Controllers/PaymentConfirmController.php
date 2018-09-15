@@ -20,7 +20,14 @@ class PaymentConfirmController extends Controller
     // PAYMENT CONFIRMATION
     public function paymentConfirmation()
     {
-        $list_orders = Order::where('user_id', Auth::user()->id)->where('status', '=', 'Waiting Payment Confirmation')->get();
+        // $list_orders = Order::where('user_id', Auth::user()->user_id)->where('status', '=', 'Waiting Payment Confirmation')->get();
+        
+        $list_orders = DB::table('orders')
+        ->select('*')
+        ->where('user_id', Auth::user()->user_id)
+        ->where('status', 'Waiting Payment Confirmation')
+        ->get();
+        // dd($list_orders);
         return view('customer.payment_confirmation', compact('list_orders'));
     }
 
@@ -46,7 +53,7 @@ class PaymentConfirmController extends Controller
             // dd($base64);
             $confirm = ConfirmPayment::create([
                 'order_id' => $request->get('order_id'),
-                'user_id' => Auth::user()->id,
+                'user_id' => Auth::user()->user_id,
                 'bank_account' => $request->get('bank_account'),
                 'account_number' => $request->get('account_number'),
                 'amount' => $request->get('amount'),

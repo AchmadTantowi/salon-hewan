@@ -41,10 +41,10 @@
                 <td>{{ $user->phone }}</td>
                 <td>{{ $user->position }}</td>
                 <td>
-                    <a href="{{ url('/admin/user/edit/') }}/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/edit/') }}/{{ $user->user_id }}">
                     Edit
                     </a> <!-- |
-                    <a href="{{ url('/admin/user/delete/') }}/{{ $user->id }}">
+                    <a href="{{ url('/admin/user/delete/') }}/{{ $user->user_id }}">
                     Delete -->
                 </td>
                 </tr>

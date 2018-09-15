@@ -54,6 +54,7 @@ class CartController extends Controller
 
     public function saveOrder(Request $request){
         $productId = $request->get('product_id');
+        // dd($productId);
         $isEdit = $request->get('isEdit');
         $replace = str_replace(",","",$request->get('total')[0]);
         $tot_price = substr($replace,0,-3);
@@ -62,6 +63,7 @@ class CartController extends Controller
         try{
             $order = new Order;
             $order->order_id = $this->getNextOrderNumber();
+           
             $order->user_id = $request->get('user_id')[0];
             $order->status = "Waiting Payment Confirmation";
             $order->alamat_order = $request->get('alamat');
@@ -70,9 +72,10 @@ class CartController extends Controller
             $order->save();
 
             for ($i=0; $i < count($productId); $i++) {
-                $getProduct = Product::where('id', $productId[$i])->first();
+                $getProduct = Product::where('product_id', $productId[$i])->first();
+                // dd($this->getNextOrderNumber());
                 $orderDetail = new OrderDetail;
-                $orderDetail->order_id = $order->order_id;
+                $orderDetail->order_id = $this->getNextOrderNumber();
                 $orderDetail->product_id = $productId[$i];
                 $orderDetail->qty = 1;
                 $orderDetail->subTotal = $getProduct->price;

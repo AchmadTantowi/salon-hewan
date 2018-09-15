@@ -39,10 +39,10 @@
                 <td>{{ $bankAccount->account_number }}</td>
                 <td>{{ $bankAccount->account_name }}</td>
                 <td>
-                    <a href="{{ url('/admin/bank/edit/') }}/{{ $bankAccount->id }}">
+                    <a href="{{ url('/admin/bank/edit/') }}/{{ $bankAccount->bank_account_id }}">
                     Edit
                     </a> <!-- |
-                    <a href="{{ url('/admin/bank/delete/') }}/{{ $bankAccount->id }}">
+                    <a href="{{ url('/admin/bank/delete/') }}/{{ $bankAccount->bank_account_id }}">
                     Delete -->
                 </td>
                 </tr>

@@ -41,7 +41,7 @@
                       @if($customer->verified)
                           <small class="label bg-green">Verified</small>
                       @else
-                          <a href="{{ url('/admin/customer/verified/') }}/{{ $customer->id }}">
+                          <a href="{{ url('/admin/customer/verified/') }}/{{ $customer->user_id }}">
                               <small class="label bg-red">Unverified</small>
                           </a>
                       @endif

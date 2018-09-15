@@ -24,8 +24,8 @@ class WorkOrderController extends Controller
         // $workOrders = WorkOrder::get();
         $workOrders = DB::table('work_orders')
         ->leftJoin('orders', 'orders.order_id', '=', 'work_orders.order_id')
-        ->leftJoin('users', 'users.id', '=', 'work_orders.instruction_to')
-        ->select('work_orders.id','work_orders.wo_number', 'work_orders.notes', 'users.name', 'work_orders.order_id', 'orders.status')
+        ->leftJoin('users', 'users.user_id', '=', 'work_orders.instruction_to')
+        ->select('work_orders.wo_number', 'work_orders.order_id','users.name','work_orders.notes','orders.status', 'work_orders.work_order_id')
         ->get();
         // dd($workOrders);
         return view('admin.work_order.index', compact('workOrders'));
@@ -35,7 +35,11 @@ class WorkOrderController extends Controller
     {
         $froms = User::where('position', 'Pemilik')->get();
         $tos = User::where('position', 'Staff Grooming')->get();
-        $orders = Order::where('status', 'Verified Payment')->get();
+        // $orders = Order::where('status', 'Verified Payment')->get();
+        $orders = DB::table('orders')
+        ->where('status', 'Verified Payment')
+        ->select('*')
+        ->get();
         $wo_number = $this->getNextWorkOrderNumber();
         $tanggal = date('Y-m-d');
         return view('admin.work_order.add', compact('froms','tos','orders', 'wo_number', 'tanggal'));
@@ -63,7 +67,7 @@ class WorkOrderController extends Controller
         try{
             $workOrder = WorkOrder::create([
                 'wo_number' => $request->get('wo_number'),
-                'instruction_from' => Auth::user()->id,
+                'instruction_from' => Auth::user()->user_id,
                 'instruction_to' => $request->get('instruction_to'),
                 'order_id' => $request->get('order_id'),
                 'notes' => $request->get('notes')
@@ -88,24 +92,41 @@ class WorkOrderController extends Controller
     public function selectCustomerAjax(Request $request){
         if($request->ajax()){
     		$order = DB::table('orders')->where('order_id',$request->order_id)->first();
-    		$user = DB::table('users')->where('id',$order->user_id)->first();
+    		$user = DB::table('users')->where('user_id',$order->user_id)->first();
     		return response()->json(['options'=>$user]);
     	}
     }
 
     public function print($id){
-        $workOrders = WorkOrder::where('id','=',$id)->first();
-        $order = Order::where('order_id', $workOrders->order_id)->first();
+        // $workOrders = WorkOrder::where('work_order_id','=',$id)->first();
+        $workOrders = DB::table('work_orders')
+        ->leftJoin('users', 'users.user_id', '=', 'work_orders.instruction_to')
+        ->select('*')
+        ->where('work_orders.work_order_id', $id)
+        ->first();
+        $workOrders2 = DB::table('work_orders')
+        ->leftJoin('users', 'users.user_id', '=', 'work_orders.instruction_from')
+        ->select('*')
+        ->where('work_orders.work_order_id', $id)
+        // ->union($workOrders)
+        ->first();
+        // dd($workOrders2);
+        $order = DB::table('orders')
+        ->leftJoin('users', 'users.user_id', '=', 'orders.user_id')
+        ->select('*')
+        ->where('orders.order_id', $workOrders->order_id)
+        ->first();
+        // $order = Order::where('order_id', $workOrders->order_id)->first();
         $orderDetails = OrderDetail::where('order_id', $workOrders->order_id)->get();
-        // dd($orderDetails);
-        return view('admin.work_order.print', compact('workOrders','order','orderDetails'));
+        // dd($order);
+        return view('admin.work_order.print', compact('workOrders','workOrders2','order','orderDetails'));
     }
 
     public function edit($id){
         $froms = User::where('position', 'Pemilik')->get();
         $tos = User::where('position', 'Staff Grooming')->get();
         $orders = Order::where('status','!=', 'Finish')->get();
-        $work_order = WorkOrder::where('id', $id)->first();
+        $work_order = WorkOrder::where('work_order_id', $id)->first();
         return view('admin.work_order.edit', compact('work_order','froms','tos','orders'));
     }
 

@@ -23,7 +23,7 @@
                   <label for="exampleInputEmail1"></label>Customer
                     <select class="form-control" name="customer">
                         @foreach($customers as $customer)
-                            <option value="{{$customer->id}}">{{$customer->name}}</option> 
+                            <option value="{{$customer->user_id}}">{{$customer->name}}</option> 
                         @endforeach
                     </select>
                 </div>

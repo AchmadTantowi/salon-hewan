@@ -24,7 +24,7 @@ class ConfirmController extends Controller
         // $confirms = ConfirmPayment::get();
         $confirms = DB::table('confirm_payments')
         ->leftJoin('orders', 'orders.order_id', '=', 'confirm_payments.order_id')
-        ->leftJoin('users', 'users.id', '=', 'confirm_payments.user_id')
+        ->leftJoin('users', 'users.user_id', '=', 'confirm_payments.user_id')
         ->select('users.name', 'confirm_payments.bank_account', 'confirm_payments.account_number', 'confirm_payments.amount','confirm_payments.photo', 'confirm_payments.order_id', 'orders.status')
         ->get();
         return view('admin.confirm.index', compact('confirms'));
@@ -34,7 +34,7 @@ class ConfirmController extends Controller
     {
         $order = Order::where('order_id', $order_id)->first();
         $order->status = "Verified Payment";
-        $getUser = User::where('id', $order->user_id)->first();
+        $getUser = User::where('user_id', $order->user_id)->first();
         $order->save();
 
         if($order){
@@ -49,7 +49,12 @@ class ConfirmController extends Controller
     }
 
     public function view($order_id){
-        $confirm = ConfirmPayment::where('order_id', $order_id)->first();
+        // $confirm = ConfirmPayment::where('order_id', $order_id)->first();
+        $confirm = DB::table('confirm_payments')
+        ->leftJoin('users', 'users.user_id', '=', 'confirm_payments.user_id')
+        ->select('*')
+        ->first();
+        // dd($confirms);
         return view('admin.confirm.view', compact('confirm'));
     }
 
@@ -68,8 +73,8 @@ class ConfirmController extends Controller
         ]);
 
         $order = Order::where('order_id', $request->get('orderid'))->first();
-        $getUser = User::where('id', $order->user_id)->first();
-
+        $getUser = User::where('user_id', $order->user_id)->first();
+        // dd($order);
         // Send email
         $send_data['title'] = "Pembayaran Anda ditolak dengan Nomor Order ".$request->get('orderid');
         $send_data['keterangan'] = $request->get('keterangan');

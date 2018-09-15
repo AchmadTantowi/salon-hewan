@@ -23,8 +23,8 @@ class CustomerController extends Controller
     }
 
     public function updateStatusVerified($userId){
-        $updateVerified = User::where('id', $userId)->update(['verified' => 1]);
-        $getUser = User::where('id', $userId)->first();
+        $updateVerified = User::where('user_id', $userId)->update(['verified' => 1]);
+        $getUser = User::where('user_id', $userId)->first();
         if($updateVerified){
             // Send email
             $send_data['title'] = "Akun Anda berhasil diverifikasi oleh Happy Pet";

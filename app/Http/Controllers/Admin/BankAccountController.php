@@ -58,7 +58,7 @@ class BankAccountController extends Controller
         if(Auth::user()->position != "Pemilik"){
             abort(404);
         }
-        $bank = BankAccount::where('id', $id)->first();
+        $bank = BankAccount::where('bank_account_id', $id)->first();
         return view('admin.bank_account.edit', compact('bank'));
     }
 

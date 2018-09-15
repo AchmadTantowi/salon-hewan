@@ -42,7 +42,7 @@
                 <tr>
                     <td>Date</td>
                     <td>:</td>
-                    <td>{{ date_format($workOrders->created_at, "d-m-Y") }}</td>
+                    <td>{{ $workOrders->created_at}}</td>
                 </tr>
                 <tr>
                     <td>Order ID</td>
@@ -52,12 +52,12 @@
                 <tr>
                     <td>Customer</td>
                     <td>:</td>
-                    <td>{{ $order->user->name }}</td>
+                    <td>{{ $order->name }}</td>
                 </tr>
                     <tr>
                     <td>Address</td>
                     <td>:</td>
-                    <td>{{ $order->alamat_order }}</td>
+                    <td>{{ $order->address }}</td>
                 </tr>
                 </tr>
                     <tr>
@@ -89,12 +89,12 @@
                 <tr>
                     <td>Nama</td>
                     <td>:</td>
-                    <td>{{ $workOrders->from->name }}</td>
+                    <td>{{ $workOrders->name }}</td>
                 </tr>
                 <tr>
                     <td>Jabatan</td>
                     <td>:</td>
-                    <td>{{ $workOrders->from->position }}</td>
+                    <td>{{ $workOrders->position }}</td>
                 </tr>
                 <tr>
                     <td><b>Memerintahkan kepada</b></td>
@@ -104,12 +104,12 @@
                 <tr>
                     <td>Nama</td>
                     <td>:</td>
-                    <td>{{ $workOrders->to->name }}</td>
+                    <td>{{ $workOrders2->name }}</td>
                 </tr>
                 <tr>
                     <td>Jabatan</td>
                     <td>:</td>
-                    <td>{{ $workOrders->to->position }}</td>
+                    <td>{{ $workOrders2->position }}</td>
                 </tr>
             </table>
             <table style="margin-left:20%;margin-right:20%;width:100%;">
@@ -119,8 +119,8 @@
                     <td>Customer</td>
                 </tr>
                 <tr style="padding-top:100px;">
-                    <td>{{ $workOrders->from->name }}</td>
-                    <td>{{ $workOrders->to->name }}</td>
+                    <td>{{ $workOrders->name }}</td>
+                    <td>{{ $workOrders2->name }}</td>
                     <td>Nama Customer</td>
                 </tr>
             </table>

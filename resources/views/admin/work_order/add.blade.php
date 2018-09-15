@@ -41,7 +41,7 @@
                   <label for="exampleInputEmail1">Instruction to</label>
                   <select class="form-control" name="instruction_to">
                     @foreach($tos as $to)
-                        <option value="{{ $to->id }}">{{ $to->name }}</option>
+                        <option value="{{ $to->user_id }}">{{ $to->name }}</option>
                     @endforeach
                   </select>
                 </div>

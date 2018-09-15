@@ -89,7 +89,7 @@
 				{{ csrf_field() }}
 				
 				<?php foreach(Cart::content() as $row) :?>
-				<input type="hidden" name="user_id[]" value="{{ Auth::user()->id }}">
+				<input type="hidden" name="user_id[]" value="{{ Auth::user()->user_id }}">
 				<input type="hidden" name="product_id[]" value="{{ $row->id }}">
 				<input type="hidden" name="total[]" value="{{ Cart::subtotal() }}">
 				<?php endforeach; ?>

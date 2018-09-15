@@ -48,7 +48,7 @@
                 <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $report->order_id }}</td>
-                    <td>{{ $report->user->name }}</td>
+                    <td>{{ $report->name }}</td>
                     <td>{{ $report->status }}</td>
                     <td>Rp. {{ number_format($report->total,0, ',' , '.') }}</td>
                 </tr>

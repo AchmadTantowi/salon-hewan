@@ -64,7 +64,7 @@ class ProductController extends Controller
         if(Auth::user()->position != "Pemilik"){
             abort(404);
         }
-        $product = Product::where('id', $id)->first();
+        $product = Product::where('product_id', $id)->first();
         return view('admin.product.edit', compact('product'));
     }
 

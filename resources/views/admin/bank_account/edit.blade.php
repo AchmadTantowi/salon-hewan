@@ -31,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ url('/admin/bank/update') }}/{{ $bank->id }}">
+            <form role="form" method="POST" action="{{ url('/admin/bank/update') }}/{{ $bank->bank_account_id }}">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">

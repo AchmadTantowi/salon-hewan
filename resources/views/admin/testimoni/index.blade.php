@@ -31,7 +31,7 @@
                 @foreach($testimonis as $testimoni)
                 <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $testimoni->user->name }}</td>
+                <td>{{ $testimoni->name }}</td>
                 <td>{{ $testimoni->title }}</td>
                 <td>{{ $testimoni->description }}</td>
                 </tr>

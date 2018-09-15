@@ -22,7 +22,7 @@
                     <td>Order ID</td><td>&nbsp;:&nbsp;</td><td> {{ $order->order_id }}</td>
                 </tr>
                 <tr>
-                    <td>Customer</td><td>&nbsp;:&nbsp;</td><td> {{ $order->user->name }}</td>
+                    <td>Customer</td><td>&nbsp;:&nbsp;</td><td> {{ $order->name }}</td>
                 </tr>
                 <tr>
                     <td>Total</td><td>&nbsp;:&nbsp;</td><td> Rp. {{ number_format($order->total,0, ',' , '.') }}</td>

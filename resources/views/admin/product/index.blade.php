@@ -37,10 +37,10 @@
                 <td>{{ $product->name }}</td>
                 <td align="right">Rp. {{ number_format($product->price,0, ',' , '.') }}</td>
                 <td>
-                    <a href="{{ url('/admin/product/edit/') }}/{{ $product->id }}">
+                    <a href="{{ url('/admin/product/edit/') }}/{{ $product->product_id }}">
                     Edit
                     </a> <!-- |
-                    <a href="{{ url('/admin/product/delete/') }}/{{ $product->id }}">
+                    <a href="{{ url('/admin/product/delete/') }}/{{ $product->product_id }}">
                     Delete -->
                 </td>
                 </tr>

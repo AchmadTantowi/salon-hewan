@@ -28,7 +28,12 @@ class LaporanController extends Controller
     public function printByDate(Request $request){
         $from = $request->get('start_date');
         $to = $request->get('end_date');
-        $reports = Order::whereBetween('created_at', [$from, $to])->get();
+        // $reports = Order::whereBetween('created_at', [$from, $to])->get();
+        $reports = DB::table('orders')
+        ->leftJoin('users', 'users.user_id', '=', 'orders.user_id')
+        ->select('*')
+        ->whereBetween('orders.created_at', [$from, $to])
+        ->get();
         return view('admin.laporan.print_bydate', compact('reports'));
     }
 
@@ -42,7 +47,12 @@ class LaporanController extends Controller
         $customer = $request->get('customer');
 
     
-        $reports = Order::where('user_id', $customer)->get();
+        // $reports = Order::where('user_id', $customer)->get();
+        $reports = DB::table('orders')
+        ->leftJoin('users', 'users.user_id', '=', 'orders.user_id')
+        ->select('*')
+        ->where('orders.user_id', $customer)
+        ->get();
         return view('admin.laporan.print_bycustomer', compact('reports'));
     }
 
@@ -58,7 +68,7 @@ class LaporanController extends Controller
         // $reports = Order::whereBetween('created_at', [$from, $to])->get();
         $reports = DB::table('confirm_payments')
         ->leftJoin('orders', 'orders.order_id', '=', 'confirm_payments.order_id')
-        ->leftJoin('users', 'users.id', '=', 'confirm_payments.user_id')
+        ->leftJoin('users', 'users.user_id', '=', 'confirm_payments.user_id')
         ->select('users.name', 'confirm_payments.bank_account', 'confirm_payments.account_number', 'confirm_payments.amount','confirm_payments.photo', 'confirm_payments.order_id', 'orders.status', 'confirm_payments.created_at')
         ->whereBetween('confirm_payments.created_at', [$from, $to])
         ->get();
@@ -78,7 +88,7 @@ class LaporanController extends Controller
         // $reports = Order::where('user_id', $customer)->get();
         $reports = DB::table('confirm_payments')
         ->leftJoin('orders', 'orders.order_id', '=', 'confirm_payments.order_id')
-        ->leftJoin('users', 'users.id', '=', 'confirm_payments.user_id')
+        ->leftJoin('users', 'users.user_id', '=', 'confirm_payments.user_id')
         ->select('users.name', 'confirm_payments.bank_account', 'confirm_payments.account_number', 'confirm_payments.amount','confirm_payments.photo', 'confirm_payments.order_id', 'orders.status', 'confirm_payments.created_at','confirm_payments.user_id')
         ->where('confirm_payments.user_id', $customer)
         ->get();
